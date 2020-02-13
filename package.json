@@ -1,23 +1,27 @@
 {
-  "name": "datingapp-feature",
-  "version": "1.0.0",
-  "description": "dating app, made one feature to add it in a complete app later on",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joordy/datingapp-feature.git"
-  },
-  "author": "Jordy Fronik",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joordy/datingapp-feature/issues"
-  },
-  "homepage": "https://github.com/joordy/datingapp-feature#readme",
-  "dependencies": {
-    "camelcase": "^5.3.1",
-    "lodash": "^4.17.15"
-  }
+    "name": "datingapp-feature",
+    "version": "1.0.0",
+    "description": "dating app, made one feature to add it in a complete app later on",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "reload": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joordy/datingapp-feature.git"
+    },
+    "author": "Jordy Fronik",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joordy/datingapp-feature/issues"
+    },
+    "homepage": "https://github.com/joordy/datingapp-feature#readme",
+    "dependencies": {
+        "camelcase": "^5.3.1",
+        "express": "^4.17.1",
+        "lodash": "^4.17.15",
+        "nodemon": "^2.0.2"
+    }
 }

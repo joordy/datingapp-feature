@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
     res.sendFile('/public/index.html');
 });
-
 app.get('/matches', function(req, res) {
     res.sendFile(__dirname + '/public/matches.html')
 });

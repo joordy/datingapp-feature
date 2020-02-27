@@ -1,0 +1,3 @@
+##### Ignore Node modules en VS Code folder.
+node_modules/*
+.vscode/*

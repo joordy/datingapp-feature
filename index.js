@@ -5,13 +5,13 @@ const PORT = 3000;
 
 let urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
-
-// Template setup, en static files ophalen middleware. Volgorde maakt uit!!
+// Template setup, en static files ophalen middleware. Volgorde maakt uit!! Voor EJS
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', 'view-ejs');
+// pakt Static files op wanneer nodig.
 app.use(express.static('static'));
 
-// routing of EJS pages
+// routing of EJS/Handlebars pages
 app.get('/', home);
 app.get('/matches', matches);
 app.get('/matchlist', matchlist);

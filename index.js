@@ -13,10 +13,11 @@ app.use(express.static('static'));
 
 // routing of EJS/Handlebars pages
 app.get('/', home);
-app.get('/matches', matches);
-app.get('/matchlist', matchlist);
 app.get('/profile', profile);
-app.post('/profile', urlEncodedParser, profilePost);
+app.get('/match', match);
+app.get('/matchlist', matchlist);
+app.get('/matchlist-empty', matchListEmpty);
+// app.post('/profile', urlEncodedParser, profilePost);
 app.get('/*', notfound);
 
 // functions for routing
@@ -24,22 +25,26 @@ function home(req, res) {
     res.render('index');
 };
 
-function matches(req, res) {
-    res.render('matches');
+function match(req, res) {
+    res.render('match');
 };
 
 function matchlist(req, res) {
-    res.render('matches');
+    res.render('matchlist');
+};
+
+function matchListEmpty(req, res) {
+    res.render('matchlist-empty');
 };
 
 function profile(req, res) {
     res.render('profile', { qs: req.query });
 };
 
-function profilePost(req, res) {
-    console.log(req.body);
-    res.render('profile-succes', { data: req.body });
-};
+// function profilePost(req, res) {
+//     console.log(req.body);
+//     res.render('profile-succes', { data: req.body });
+// };
 
 function notfound(req, res) {
     res.render('404');

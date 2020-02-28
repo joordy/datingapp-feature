@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <%- include ("partials/nav.ejs") %>
+    </header>
+    <h1>Vertel wie je bent!</h1>
+    <p>
+        <%= qs.user  %>
+    </p>
+    <div>
+        <form id="contactform" method="POST" action="/profile">
+            <label for="Wie">Wie</label>
+            <input type="text" name="wie" value="<%= qs.user%>">
+            <label for="email">Email</label>
+            <input type="email" name="email">
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -4,24 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>Overview</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Match-List</title>
 </head>
 
 <body>
     <header>
-        <%- include ("partials/nav.ejs") %>
-
+        <nav>
+            <ul>
+                <li>
+                    <a href="#"><img src="images/settings.svg" alt=""></a>
+                </li>
+                <li>
+                    <a href="/">
+                        <h1>Swiper</h1>
+                    </a>
+                </li>
+                <li>
+                    <a href="matchlist"><img src="images/chats.svg" alt=""></a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <h1>overview!</h1>
 
-        <section>
-            <h2>Dit is een mensje</h2>
-        </section>
+    <main class="matchlist">
+        <article>
+            <figure>
+                <img src="images/user1round.png" alt="">
+            </figure>
+            <figcaption>
+                <h2>{{Person, age}}</h2>
+                <p>You've got a match, lets talk!</p>
+            </figcaption>
+        </article>
+        <div></div>
+        <article>
+            <figure>
+                <img src="images/user2round.png" alt="">
+            </figure>
+            <figcaption>
+                <h2>{{Person, age}}</h2>
+                <p>You've got a match, lets talk!</p>
+            </figcaption>
+        </article>
+        <div></div>
+        <article>
+            <figure>
+                <img src="images/user3round.png" alt="">
+            </figure>
+            <figcaption>
+                <h2>{{Person, age}}</h2>
+                <p>You've got a match, lets talk!</p>
+            </figcaption>
+        </article>
+        <div></div>
     </main>
     <footer>
-        <p>&COPY; Jordy Fronik</p>
+        <p> &COPY; Jorrr</p>
     </footer>
 </body>
 

@@ -1,9 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
-let urlEncodedParser = bodyParser.urlencoded({ extended: false })
+// let urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
 // Template setup, en static files ophalen middleware. Volgorde maakt uit!! Voor EJS
 app.set('view engine', 'ejs');
@@ -23,23 +23,23 @@ app.get('/*', notfound);
 // functions for routing
 function home(req, res) {
     res.render('index');
-};
+}
 
 function match(req, res) {
     res.render('match');
-};
+}
 
 function matchlist(req, res) {
     res.render('matchlist');
-};
+}
 
 function matchListEmpty(req, res) {
     res.render('matchlist-empty');
-};
+}
 
 function profile(req, res) {
     res.render('profile', { qs: req.query });
-};
+}
 
 // function profilePost(req, res) {
 //     console.log(req.body);
@@ -48,7 +48,7 @@ function profile(req, res) {
 
 function notfound(req, res) {
     res.render('404');
-};
+}
 
 // Routes Dynamic
 // app.get('/', function(req, res) {

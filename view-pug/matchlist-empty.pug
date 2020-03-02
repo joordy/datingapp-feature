@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    header
+        nav
+            ul
+                li
+                    a(href="#")
+                        img(src="images/settings.svg", alt="")
+                li
+                    a(href="/")
+                        h1 Swiper
+                li 
+                    a(href="matchlist")
+                        img(src="images/chats.svg", alt="")
+
+    main.emptymatchlist
+        section 
+            h1 Sorry!
+            p Hmm.. You don't have any matches yet. But don't worry!
+            a(href="/") Start Swiping

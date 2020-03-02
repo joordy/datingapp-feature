@@ -1,13 +1,14 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
-// let urlEncodedParser = bodyParser.urlencoded({ extended: false })
+let urlEncodedParser = bodyParser.urlencoded({ extended: false })
 
 // Template setup, en static files ophalen middleware. Volgorde maakt uit!! Voor EJS
 app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
+
 // pakt Static files op wanneer nodig.
 app.use(express.static('static'));
 
@@ -17,7 +18,9 @@ app.get('/profile', profile);
 app.get('/match', match);
 app.get('/matchlist', matchlist);
 app.get('/matchlist-empty', matchListEmpty);
-// app.post('/profile', urlEncodedParser, profilePost);
+app.get('/test', test);
+
+app.post('/profile', urlEncodedParser, profilePost);
 app.get('/*', notfound);
 
 // functions for routing
@@ -38,13 +41,17 @@ function matchListEmpty(req, res) {
 }
 
 function profile(req, res) {
-    res.render('profile', { qs: req.query });
+    res.render('profile');
 }
 
-// function profilePost(req, res) {
-//     console.log(req.body);
-//     res.render('profile-succes', { data: req.body });
-// };
+function test(req, res) {
+    res.render('test');
+}
+
+function profilePost(req, res) {
+    console.log(req.body);
+    res.render('profile-succes', { data: req.body });
+};
 
 function notfound(req, res) {
     res.render('404');

@@ -1,9 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const slug = require('slug');
 const app = express();
 const PORT = 3000;
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-let urlEncodedParser = bodyParser.urlencoded({ extended: false })
+let matches = [{
+        id: 1,
+        name: 'Lisanne',
+        age: '22'
+    },
+    {
+        id: 2,
+        name: 'Elisa',
+        age: '21'
+    },
+    {
+        id: 3,
+        name: 'Fabienne',
+        age: '23'
+    }
+];
 
 // Template setup, en static files ophalen middleware. Volgorde maakt uit!! Voor EJS
 app.set('view engine', 'ejs');
@@ -18,9 +35,8 @@ app.get('/profile', profile);
 app.get('/match', match);
 app.get('/matchlist', matchlist);
 app.get('/matchlist-empty', matchListEmpty);
-app.get('/test', test);
-
-app.post('/profile', urlEncodedParser, profilePost);
+app.get('/who', test);
+app.post('/swipe', urlencodedParser, posten);
 app.get('/*', notfound);
 
 // functions for routing
@@ -33,7 +49,9 @@ function match(req, res) {
 }
 
 function matchlist(req, res) {
-    res.render('matchlist');
+    res.render('matchlist', {
+        match: matches
+    });
 }
 
 function matchListEmpty(req, res) {
@@ -48,43 +66,20 @@ function test(req, res) {
     res.render('test');
 }
 
-function profilePost(req, res) {
-    console.log(req.body);
-    res.render('profile-succes', { data: req.body });
+function posten(req, res) {
+    res.render('swipe', {
+        data: req.body
+    });
 };
+// app.post('/succes', urlEncodedParser, function(req, res) {
+//     console.log(req.body);
+//     res.send('welcome, ' + req.body.username)
+// })
+
 
 function notfound(req, res) {
     res.render('404');
 }
-
-// Routes Dynamic
-// app.get('/', function(req, res) {
-//     res.render('index');
-// });
-// app.get('/matches', function(req, res) {
-//     res.render('matches');
-// });
-// app.get('/matchlist', function(req, res) {
-//     res.render('matchlist');
-// });
-// app.get('/profile', function(req, res) {
-//     res.render('profile', { qs: req.query });
-// });
-// // post method to succes page
-// app.post('/profile', urlEncodedParser, function(req, res) {
-//     console.log(req.body);
-//     res.render('profile-succes', { data: req.body });
-// });
-
-// app.get('/test/:name', function(req, res) {
-//     // insert data from database( in this case, from object)
-//     let data = { age: 22, job: 'Student', hobby: ['Eating', 'Drawing', 'Shopping'] };
-//     // render everything in EJS.
-//     res.render('test', { person: req.params.name, data: data });
-// });
-// app.get('/*', function(req, res) {
-//     res.render('404');
-// });
 
 // Server aanzetten
 app.listen(3000, () => console.log(`App is listening on ${PORT}!`));

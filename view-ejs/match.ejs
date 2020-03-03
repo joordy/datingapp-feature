@@ -2,10 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Match</title>
+    <%- include ("partials/head.ejs") %>
+        <title>Match</title>
 </head>
 
 <body>
@@ -15,8 +13,8 @@
 
     <main class="match">
         <section>
-            <img src="images/user1.jpg" alt="">
-            <img src="images/me.jpg" alt="">
+            <img src="images/user1.png" alt="">
+            <img src="images/me.png" alt="">
             <img src="images/matchheart.svg" alt="">
         </section>
         <section>
@@ -28,7 +26,7 @@
     </main>
 
     <footer>
-        <p> &COPY; Jorrr</p>
+        <%- include ("partials/footer.ejs") %>
     </footer>
 </body>
 

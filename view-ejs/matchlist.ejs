@@ -2,10 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Match-List</title>
+    <%- include ("partials/head.ejs") %>
+        <title>Match-List</title>
 </head>
 
 <body>
@@ -19,7 +17,9 @@
                 <img src="images/user1round.png" alt="">
             </figure>
             <figcaption>
-                <h2>{{Person, age}}</h2>
+                <h2>
+                    <%- include ("partials/matchcard.ejs") %>
+                </h2>
                 <p>You've got a match, lets talk!</p>
             </figcaption>
         </article>
@@ -29,7 +29,9 @@
                 <img src="images/user2round.png" alt="">
             </figure>
             <figcaption>
-                <h2>{{Person, age}}</h2>
+                <h2>
+                    <%- include ("partials/matchcard.ejs") %>
+                </h2>
                 <p>You've got a match, lets talk!</p>
             </figcaption>
         </article>
@@ -39,14 +41,16 @@
                 <img src="images/user3round.png" alt="">
             </figure>
             <figcaption>
-                <h2>{{Person, age}}</h2>
+                <h2>
+                    <%- include ("partials/matchcard.ejs") %>
+                </h2>
                 <p>You've got a match, lets talk!</p>
             </figcaption>
         </article>
         <div></div>
     </main>
     <footer>
-        <p> &COPY; Jorrr</p>
+        <%- include ("partials/footer.ejs") %>
     </footer>
 </body>
 

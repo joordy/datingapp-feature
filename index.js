@@ -49,10 +49,12 @@ function match(req, res) {
 }
 
 function matchlist(req, res) {
-    res.render('matchlist', {
-        match: matches
-    });
-}
+    res.render('matchlist',
+        // {
+        //  matches: req.body
+        //}
+    );
+};
 
 function matchListEmpty(req, res) {
     res.render('matchlist-empty');
@@ -76,6 +78,15 @@ function posten(req, res) {
 //     res.send('welcome, ' + req.body.username)
 // })
 
+// function test1(req, res) {
+//     res.render('test1');
+// }
+
+// function test2(req, res) {
+//     res.render('test2', {
+//         data: req.body
+//     });
+// };
 
 function notfound(req, res) {
     res.render('404');

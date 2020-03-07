@@ -6,20 +6,19 @@
         <title>Match-List</title>
 </head>
 
-<body>
+<body class="matchlist">
     <header>
-        <%- include ("partials/navigation.ejs") %>
+        <h1>Swiper</h1>
     </header>
 
-    <main class="matchlist">
+    <main>
         <article>
             <figure>
                 <img src="images/user1round.png" alt="">
             </figure>
             <figcaption>
                 <h2>
-                    <%= matches[0].name%> ,
-                        <%= matches[0]].age%>
+                    Hello
                 </h2>
                 <p>You've got a match, lets talk!</p>
             </figcaption>
@@ -31,8 +30,7 @@
             </figure>
             <figcaption>
                 <h2>
-                    <%= matches[1].name%> ,
-                        <%= matches[1].age%>
+                    Hello
                 </h2>
                 <p>You've got a match, lets talk!</p>
             </figcaption>
@@ -44,8 +42,7 @@
             </figure>
             <figcaption>
                 <h2>
-                    <%= matches[2].name%> ,
-                        <%= matches[2].age%>
+                    Hello
                 </h2>
                 <p>You've got a match, lets talk!</p>
             </figcaption>
@@ -53,7 +50,7 @@
         <div></div>
     </main>
     <footer>
-        <%- include ("partials/footer.ejs") %>
+        <%- include ("partials/footernav-matches.ejs") %>
     </footer>
 </body>
 

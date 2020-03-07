@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ("partials/head.ejs") %>
+        <title>Profile</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main class="profile">
+        <div></div>
+        <div></div>
+        <section>
+            <a href="/">
+                <img src="images/user1.png" alt="">
+            </a>
+            <section>
+                <h2>{{Person, age}}</h2>
+                <h3>{{Werk}}</h3>
+                <article>
+                    <img src="images/user1.png" alt="">
+                    <img src="images/user1.png" alt="">
+                    <img src="images/user1.png" alt="">
+                </article>
+                <h4>Hobby's</h4>
+                <p>Fitness, Reizen, Bakken</p>
+                <h4>About</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum. Fames posuere at rhoncus neque ultricies ante senectus.</p>
+            </section>
+        </section>
+        <section>
+            <button><img src="images/dislike.svg" alt=""></button>
+            <button onclick="location.href='match'"><img src="images/like.svg" alt=""></button>
+            <button><img src="images/share.svg " alt=" "></button>
+        </section>
+    </main>
+    <footer>
+        <%- include ("partials/footer.ejs") %>
+    </footer>
+</body>
+
+</html>

@@ -3,21 +3,36 @@
 
 <head>
     <%- include ("partials/head.ejs") %>
-        <title>Profile</title>
+        <title>Home</title>
 </head>
 
 <body>
     <header>
-        <%- include ("partials/navigation.ejs") %>
+        <h1>Swiper</h1>
     </header>
 
     <main>
-        <%- include ("partials/form.ejs") %>
+        <section>
+            <a href="profile">
+                <img src="images/user1.png" alt="">
+                <article>
+                    <h2>
+                        people.name
+                    </h2>
+                    <h3>Role</h3>
+                    <form action="/">
+                        <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
+                        <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
+                    </form>
+                </article>
+            </a>
+        </section>
     </main>
 
     <footer>
-        <%- include ("partials/footer.ejs") %>
+        <%- include ("partials/footernav-home.ejs") %>
     </footer>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

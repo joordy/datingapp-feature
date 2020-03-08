@@ -19,51 +19,56 @@ header h1 {
 
 /* main */
 
-body {
-    background-image: url("../images/background.png");
-    background-attachment: fixed;
-}
 
-section {
+/* .background {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+} */
+
+figure {
     width: 90%;
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
 }
 
-section img {
+figure img {
     object-fit: cover;
     border-radius: 10px;
     width: 100%;
-    height: 31em;
+    height: 75vh;
 }
 
-section article {
+figure figcaption {
     background-color: white;
     width: 90%;
     margin: 0em 1em 1em 1em;
     position: absolute;
-    top: 22em;
+    top: 52vh;
+    min-width: top;
     padding: 1em;
     border-radius: 10px;
 }
 
-section article h2 {
+figure figcaption h2 {
     font-size: 24px;
 }
 
-section article h3 {
+figure figcaption h3 {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 0.5em;
 }
 
-section article form {
+figure figcaption form {
     display: flex;
     justify-content: space-between;
 }
 
-section article form button {
+figure figcaption form button {
     width: 45%;
     height: 40px;
     background-color: #D4D4D4;
@@ -71,11 +76,11 @@ section article form button {
     border-radius: 7px;
 }
 
-section article form button:nth-of-type(2) {
+figure figcaption form button:nth-of-type(2) {
     background-color: #EB4B71;
 }
 
-section article form button img {
+figure figcaption form button img {
     width: auto;
     height: 24px;
 }
@@ -84,6 +89,7 @@ section article form button img {
 /* footer */
 
 footer {
+    border-top: 1px solid black;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -129,7 +135,7 @@ footer nav ul li {
     position: absolute;
     z-index: 2;
     top: 0;
-    height: 100vh;
+    height: 50em;
     width: 100vw;
     background-image: linear-gradient(to top, rgba(78, 80, 184, 1), rgba(78, 80, 184, .1));
 }
@@ -138,6 +144,7 @@ footer nav ul li {
     position: absolute;
     z-index: 1;
     top: 100vh;
+    height: 15em;
     background-color: #4E50B8;
 }
 
@@ -148,18 +155,33 @@ footer nav ul li {
     top: 0;
 }
 
-.profile section:nth-of-type(2) article {
-    display: block;
+.profile section:nth-of-type(2) article h2 {
+    margin-top: 1em;
+    font-size: 1.5em;
 }
 
-.profile section:nth-of-type(2) article:nth-of-type(2) {
+.profile section:nth-of-type(2) article h3 {
+    font-size: 1em;
+    margin: 1em 0em 1.25em 0em;
+}
+
+.profile section:nth-of-type(2) article h4 {
+    font-size: 1.25em;
+    margin: 1em 0em 0.25em 0em;
+}
+
+.profile section:nth-of-type(2) article section {
     display: flex;
 }
 
-.profile section:nth-of-type(2) article:nth-of-type(2) img {
+.profile section:nth-of-type(2) article section img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+}
+
+.profile section:nth-of-type(2) article form {
+    margin: 1em 0em 0em 0em;
 }
 
 
@@ -264,12 +286,22 @@ footer nav ul li {
 .matchlist article {
     display: flex;
     width: 90vw;
-    margin: 0vw 5vw;
+    /* margin: 0vw 5vw; */
     margin-top: 1em;
+}
+
+.matchlist article figure {
+    width: 100px;
+}
+
+.matchlist article figure img {
+    width: 100px;
+    height: 100px;
 }
 
 .matchlist article figcaption {
     margin-left: 1em;
+    width: 60%;
 }
 
 .matchlist div {

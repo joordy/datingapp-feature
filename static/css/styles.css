@@ -6,8 +6,17 @@ html {
     margin: 0;
 }
 
+body {
+    background: url('../images/background.png')no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: black;
+}
 
-/* global */
+
+/* header */
 
 header h1 {
     font-size: 2em;
@@ -19,17 +28,13 @@ header h1 {
 
 /* main */
 
-
-/* .background {
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-} */
+main ul li {
+    position: absolute;
+}
 
 figure {
     width: 90%;
+    height: 75vh;
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
@@ -37,9 +42,9 @@ figure {
 
 figure img {
     object-fit: cover;
+    height: 75vh;
     border-radius: 10px;
     width: 100%;
-    height: 75vh;
 }
 
 figure figcaption {
@@ -89,7 +94,6 @@ figure figcaption form button img {
 /* footer */
 
 footer {
-    border-top: 1px solid black;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -123,6 +127,10 @@ footer nav ul li {
     width: 100%;
 }
 
+.profile section:nth-of-type(1) {
+    background-color: hotpink;
+}
+
 .profile section:nth-of-type(1) img {
     width: 100vw;
     height: 100vh;
@@ -144,15 +152,19 @@ footer nav ul li {
     position: absolute;
     z-index: 1;
     top: 100vh;
-    height: 15em;
+    height: 18em;
     background-color: #4E50B8;
 }
 
 .profile section:nth-of-type(2) {
-    width: 100%;
+    width: 90%;
+    margin: 0% 5%;
+    padding: 5%;
+    background-color: white;
     position: absolute;
     z-index: 3;
-    top: 0;
+    top: 25em;
+    border-radius: 15px 15px 15px 15px;
 }
 
 .profile section:nth-of-type(2) article h2 {
@@ -170,11 +182,11 @@ footer nav ul li {
     margin: 1em 0em 0.25em 0em;
 }
 
-.profile section:nth-of-type(2) article section {
+.profile section:nth-of-type(2) article div {
     display: flex;
 }
 
-.profile section:nth-of-type(2) article section img {
+.profile section:nth-of-type(2) article div img {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -182,6 +194,28 @@ footer nav ul li {
 
 .profile section:nth-of-type(2) article form {
     margin: 1em 0em 0em 0em;
+}
+
+.profile section:nth-of-type(2) article form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile section:nth-of-type(2) article form button {
+    width: 45%;
+    height: 40px;
+    background-color: #D4D4D4;
+    border: none;
+    border-radius: 7px;
+}
+
+.profile section:nth-of-type(2) article form button:nth-of-type(2) {
+    background-color: #EB4B71;
+}
+
+.profile section:nth-of-type(2) article form button img {
+    width: auto;
+    height: 24px;
 }
 
 

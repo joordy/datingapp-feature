@@ -12,22 +12,29 @@
     </header>
 
     <main>
-        <figure>
-            <a href="profile">
-                <img src="images/user1.png" alt="">
-                <figcaption>
-                    <h2>
-                        people.name
-                    </h2>
-                    <h3>Role</h3>
-                    <form action="/">
-                        <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
-                        <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
-                    </form>
-                </figcaption>
-            </a>
-        </figure>
-        <!-- <img class="background" src="images/background.png" alt=""> -->
+        <ul>
+            <% for(let i = 0; i <persons.length; i++) { %>
+                <li>
+                    <figure>
+                        <a href="profile">
+                            <img src="images/<%= persons[i].photo %>" alt="Profile picture of ">
+                            <figcaption>
+                                <h2>
+                                    <%= persons[i].name %>, <%= persons[i].age %>
+                                </h2>
+                                <h3>
+                                    <%= persons[i].work %>
+                                </h3>
+                                <form action="/">
+                                    <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
+                                    <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
+                                </form>
+                            </figcaption>
+                        </a>
+                    </figure>
+                </li>
+                <% } %>
+        </ul>
     </main>
 
     <footer>

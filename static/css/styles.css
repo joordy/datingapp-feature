@@ -4,6 +4,7 @@ html {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: black;
 }
 
 body {
@@ -12,7 +13,6 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    color: black;
 }
 
 
@@ -27,6 +27,11 @@ header h1 {
 
 
 /* main */
+
+a {
+    text-decoration: none;
+    background-color: none;
+}
 
 main ul li {
     position: absolute;
@@ -121,6 +126,19 @@ footer nav ul li {
 
 .profile {
     margin: 0;
+}
+
+.profile ul {
+    position: absolute;
+    z-index: 5;
+    width: 90%;
+    margin: 5% 5% 0% 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile ul li {
+    list-style-type: none;
 }
 
 .profile section {

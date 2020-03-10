@@ -13,19 +13,19 @@
 
     <main>
         <ul>
-            <% for(let i = 0; i <persons.length; i++) { %>
+            <% for(let i = 0; i <users.length; i++) { %>
                 <li>
                     <figure>
                         <a href="profile">
-                            <img src="images/<%= persons[i].photo %>" alt="Profile picture of ">
+                            <img src="images/users/<%= users[i].photo %>" alt="Profile picture of ">
                             <figcaption>
                                 <h2>
-                                    <%= persons[i].name %>, <%= persons[i].age %>
+                                    <%= users[i].name %>, <%= users[i].age %>
                                 </h2>
                                 <h3>
-                                    <%= persons[i].work %>
+                                    <%= users[i].work %>
                                 </h3>
-                                <form action="/">
+                                <form action="/" method="POST">
                                     <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
                                     <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
                                 </form>

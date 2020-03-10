@@ -7,30 +7,44 @@
 </head>
 
 <body class="profile">
-    <section>
-        <img src="images/user1.png" alt="">
-        <div></div>
-        <div></div>
-    </section>
-    <section>
-        <article>
-            <h2>{{Person, age}}</h2>
-            <h3>{{Werk}}</h3>
-            <div>
-                <img src="images/user1.png" alt="">
-                <img src="images/user1.png" alt="">
-                <img src="images/user1.png" alt="">
-            </div>
-            <h4>Hobby's</h4>
-            <p>Fitness, Reizen, Bakken</p>
-            <h4>About</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum.</p>
-            <form action="/match">
-                <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
-                <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
-            </form>
-        </article>
-    </section>
+    <% let currentPerson = users.length - 1; %>
+        <ul>
+            <li>
+                <a href="/"><img src="images/icons/back.svg" alt="back"></a>
+            </li>
+            <li>
+                <a href="#"><img src="images/icons/share.svg" alt="share"></a>
+            </li>
+        </ul>
+        <section>
+            <img src="images/users/<%= users[currentPerson].photo %>" alt="Profile picture of ">
+            <div></div>
+            <div></div>
+        </section>
+        <section>
+            <article>
+                <h2>
+                    <%= users[currentPerson].name %>,
+                        <%= users[currentPerson].age %>
+                </h2>
+                <h3>
+                    <%= users[currentPerson].work %>
+                </h3>
+                <div>
+                    <img src="images/users/<%= users[currentPerson].photo %>" alt="Profile picture of ">
+                    <img src="images/users/<%= users[currentPerson].photo %>" alt="Profile picture of ">
+                    <img src="images/users/<%= users[currentPerson].photo %>" alt="Profile picture of ">
+                </div>
+                <h4>Hobby's</h4>
+                <p>Fitness, Reizen, Bakken</p>
+                <h4>About</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum.</p>
+                <form action="/match" method="POST">
+                    <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
+                    <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
+                </form>
+            </article>
+        </section>
 </body>
 
 </html>

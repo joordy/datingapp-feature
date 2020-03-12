@@ -1,22 +1,25 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const slug = require('slug');
-const session = require('express-session');
-
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
+const mongo = require('mongodb');
 
-// require('dotenv').config()
+require('dotenv').config();
 
-///////////// middleware
-app.use(session({
-    'secret': '343ji43j4n3jn4jk3n'
-}));
+let db = null;
+const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
 
+mongo.MongoClient.connect(uri, function(err, client) {
+    if (err) throw err;
+    db = client.db(process.env.DB_NAME);
+    // console.log(client)
+})
+
+// Middleware 
 // Template setup, en static files ophalen middleware. Volgorde maakt uit!! Voor EJS
 app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
-
 // pakt Static files op wanneer nodig.
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -104,25 +107,12 @@ users.forEach(function(person) {
     totalData.allUsers.push(person);
 });
 
-// console.log(totalData.allUsers);
-// Charlotte = new users('0001', 'Charlotte', '20', 'user0008.jpg', `Student`, `lorem`, false)
-//  Alicia = new users('0001', 'Alicia', '19', 'user0009.jpg', `Student`, `lorem`, true)
-//  Eva = new users('0001', 'Eva', '18', 'user0010.jpg', `Student`, `lorem`, false)
-//  Annabel = new users('0001', 'Annabel', '18', 'user0011.jpg', `Student`, `lorem`, false)
-//  Linda = new users('0001', 'Linda', '21', 'user0012.jpg', `Student`, `lorem`, true)
-//  Stacey = new users('0001', 'Stacey', '22', 'user0013.jpg', `Student`, `lorem`, true)
-//  Anne = new users('0001', 'Anne', '23', 'user0014.jpg', `Student`, `lorem`, true)
-//  Ella = new users('0001', 'Ella', '23', 'user0015.jpg', `Student`, `lorem`, false)
-//  Laura = new users('0001', 'Laura', '21', 'user0016.jpg', `Student`, `lorem`, true)
-//  Amy = new users('0001', 'Amy', '21', 'user0017.jpg', `Student`, `lorem`, false)
-
-
-// const data = {
-//     likedPersons: [],
-//     persons: [Kayleigh, Vera, Isabelle, Sharon, Georgina, Roos, Caroline, Charlotte, Alicia, Eva, Annabel, Linda, Stacey, Anne, Ella, Laura, Amy]
-// }
+// console.log(totalData.allUsers)
 
 let i = totalData['allUsers'].length - 1;
+
+// var json = JSON.stringify(users);
+// console.log(json)
 
 // routing of EJS/Handlebars pages
 app.get('/', (req, res) => {
@@ -208,4 +198,4 @@ function notfound(req, res) {
 }
 
 // Server aanzetten
-app.listen(3000, () => console.log(`App is listening on ${PORT}!`));
+app.listen(4000, () => console.log(`App is listening on ${PORT}!`));

@@ -6,14 +6,13 @@ const PORT = 4000;
 const mongo = require('mongodb');
 
 require('dotenv').config();
-
 let db = null;
 const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
 
 mongo.MongoClient.connect(uri, function(err, client) {
     if (err) throw err;
     db = client.db(process.env.DB_NAME);
-    // console.log(client)
+    console.log(client)
 })
 
 // Middleware 

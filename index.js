@@ -86,6 +86,96 @@ let users = [{
     work: 'Student IT',
     desc: 'merol',
     match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Nancy',
+    age: 21,
+    photo: 'user0008.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Ashley',
+    age: 21,
+    photo: 'user0009.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Melanie',
+    age: 21,
+    photo: 'user0010.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Anna',
+    age: 21,
+    photo: 'user0011.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Meghan',
+    age: 21,
+    photo: 'user0012.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Annabel',
+    age: 21,
+    photo: 'user0013.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Robin',
+    age: 21,
+    photo: 'user0014.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Chelsea',
+    age: 21,
+    photo: 'user0015.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Romy',
+    age: 21,
+    photo: 'user0016.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Michella',
+    age: 21,
+    photo: 'user0017.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
 }];
 
 // object with 2 arrays, one for liked, one for all users.
@@ -109,7 +199,10 @@ app.post('/match', (req, res) => {
         let z = (totalData.liked.length - 1);
         res.render('match', { liked: totalData.liked[z] });
         // console.log(totalData.liked);
-    } else {
+    } else if (req.body.dislike) {
+        let x = (totalData.users.length - 1);
+        totalData.users.pop();
+        res.redirect('/');
         // schrijf logic voor de dislike.
         console.log("Er is niet op de like gedrukt");
     }

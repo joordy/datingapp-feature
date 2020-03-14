@@ -27,12 +27,12 @@
                                 </h3>
                                 <form action="/match" method="POST">
                                     <label for="dislike">
-                                        <input type="checkbox" name="dislike" class="dislike" data-id="<%= users[i].id %>">
+                                        <input type="checkbox" name="dislike" class="dislike" onchange="this.form.submit();" data-id="<%= users[i].id %>">
                                     </label>
                                     <label for="like">
-                                        <input type="checkbox" name="like" class="like" data-id="<%= users[i].id %>">
+                                        <input type="checkbox" name="like" class="like" onchange="this.form.submit();" data-id="<%= users[i].id %>">
                                     </label>
-                                    <input type="submit" value="Verstuur">
+                                    <!-- <input type="submit" value="Verstuur"> -->
                                 </form>
                             </figcaption>
                         </a>
@@ -40,6 +40,7 @@
                 </li>
                 <% } %>
         </ul>
+        <p>Er zijn geen gebruikers meer om te laten zien, kom later terug.</p>
     </main>
 
     <footer>

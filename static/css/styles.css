@@ -33,6 +33,14 @@ a {
     background-color: none;
 }
 
+p {
+    padding: 0em 3em;
+    height: 80vh;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle
+}
+
 main ul li {
     position: absolute;
 }
@@ -353,6 +361,13 @@ footer nav ul li {
 /******************************
         Match pagina 
 ******************************/
+
+.matchlist p {
+    padding: 0;
+    height: 1em;
+    text-align: left;
+    display: block;
+}
 
 .matchlist header {
     margin-bottom: 2em;

@@ -12,42 +12,25 @@
     </header>
 
     <main>
-        <article>
-            <figure>
-                <img src="images/user1round.png" alt="">
-            </figure>
-            <figcaption>
-                <h2>
-                    Hello
-                </h2>
-                <p>You've got a match, lets talk!</p>
-            </figcaption>
-        </article>
-        <div></div>
-        <article>
-            <figure>
-                <img src="images/user2round.png" alt="">
-            </figure>
-            <figcaption>
-                <h2>
-                    Hello
-                </h2>
-                <p>You've got a match, lets talk!</p>
-            </figcaption>
-        </article>
-        <div></div>
-        <article>
-            <figure>
-                <img src="images/user3round.png" alt="">
-            </figure>
-            <figcaption>
-                <h2>
-                    Hello
-                </h2>
-                <p>You've got a match, lets talk!</p>
-            </figcaption>
-        </article>
-        <div></div>
+        <ul>
+            <% for (let i = 0; i < liked.length; i++) { %>
+                <li>
+                    <article>
+                        <figure>
+                            <img src="images/users/<%= liked[i].photo %>" alt="Liked user">
+                        </figure>
+                        <figcaption>
+                            <h2>
+                                <%= liked[i].name %>,
+                                    <%= liked[i].age %>
+                            </h2>
+                            <p>You've got a match, lets talk!</p>
+                        </figcaption>
+                    </article>
+                    <div></div>
+                </li>
+                <% }%>
+        </ul>
     </main>
     <footer>
         <%- include ("partials/footernav-matches.ejs") %>

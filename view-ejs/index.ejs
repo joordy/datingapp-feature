@@ -13,35 +13,32 @@
 
     <main>
         <ul>
-            <% for (let i = 0; i <user.length; i++) { %>
-                <%console.log(user[i].name) %>
-                    <li>
-                        <figure>
-                            <a href="profile">
-                            <img src="images/users/<%= user[i].photo %>" alt="Profile picture of ">
+            <% for (let i = 0; i <users.length; i++) { %>
+                <li>
+                    <figure>
+                        <a href="profile">
+                            <img src="images/users/<%= users[i].photo %>" alt="Profile picture of ">
                             <figcaption>
                                 <h2>
-                                    <%= user[i].name %>, <%= user[i].age %>
+                                    <%= users[i].name %>, <%= users[i].age %>
                                 </h2>
                                 <h3>
-                                    <%= user[i].work %>, <%= user[i].id %>
+                                    <%= users[i].work %>, <%= users[i].id %>
                                 </h3>
                                 <form action="/match" method="POST">
                                     <label for="dislike">
-                                        <input type="checkbox" name="dislike" class="dislike" data-id="<%= user[i].id %>">
+                                        <input type="checkbox" name="dislike" class="dislike" data-id="<%= users[i].id %>">
                                     </label>
                                     <label for="like">
-                                        <input type="checkbox" name="like" class="like" data-id="<%= user[i].id %>">
+                                        <input type="checkbox" name="like" class="like" data-id="<%= users[i].id %>">
                                     </label>
                                     <input type="submit" value="Verstuur">
-                                    <!-- <button name="dislike" data-id="" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
-                                    <button name="like" data-id="" class="like"><img src="images/like.svg" alt="liking person"></button> -->
                                 </form>
                             </figcaption>
                         </a>
-                        </figure>
-                    </li>
-                    <% } %>
+                    </figure>
+                </li>
+                <% } %>
         </ul>
     </main>
 

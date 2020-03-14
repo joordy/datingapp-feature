@@ -3,20 +3,20 @@ const bodyParser = require('body-parser');
 const slug = require('slug');
 const app = express();
 const PORT = 4000;
-// const mongo = require('mongodb');
+const mongo = require('mongodb');
+require('dotenv').config();
 
-// require('dotenv').config();
-// let db = null;
-// const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
+// Server aanroepen
+let db = null;
+const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
 
-// mongo.MongoClient.connect(uri, function(err, client) {
-//     if (err) throw err;
-//     db = client.db(process.env.DB_NAME);
-//     console.log(client)
-// })
+mongo.MongoClient.connect(uri, { useUnifiedTopology: true }, function(err, client) {
+    if (err) throw err;
+    db = client.db(process.env.DB_NAME);
+    console.log('Your database will be connected..')
+})
 
 // Middleware 
-// Template setup, en static files ophalen middleware
 app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
 app.use(express.static('static'));
@@ -25,161 +25,99 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // user data
 let users = [{
-        id: 10001,
-        name: 'Kayleigh',
-        age: 22,
-        photo: 'user0001.jpg',
-        work: 'Working at Google',
-        desc: 'lorem',
-        match: true
-    }, {
-        seen: false,
-        id: 10002,
-        name: 'Vera',
-        age: 21,
-        photo: 'user0002.jpg',
-        work: 'Student CMD',
-        desc: 'lorem',
-        match: true
-    }, {
-        seen: false,
-        id: 10003,
-        name: 'Isabella',
-        age: 18,
-        photo: 'user0003.jpg',
-        work: 'Student Teacher',
-        desc: 'lorem',
-        match: true
-    }, {
-        seen: false,
-        id: 10004,
-        name: 'Sharon',
-        age: 19,
-        photo: 'user0004.jpg',
-        work: 'Student CMD',
-        desc: 'lorme',
-        match: false
-    }, {
-        seen: false,
-        id: 10005,
-        name: 'Georgina',
-        age: 23,
-        photo: 'user0005.jpg',
-        work: 'Student Math',
-        desc: 'melor',
-        match: true
-    }, {
-        seen: false,
-        id: 10006,
-        name: 'Roos',
-        age: 20,
-        photo: 'user0006.jpg',
-        work: 'Student IT',
-        desc: 'merol',
-        match: true
-    }, {
-        seen: false,
-        id: 10006,
-        name: 'Caroline',
-        age: 21,
-        photo: 'user0007.jpg',
-        work: 'Student IT',
-        desc: 'merol',
-        match: true
-    }
-    // , {
-    //     seen: false,
-    //     id: 10006,
-    //     name: 'Charlotte',
-    //     age: 21,
-    //     photo: 'user0008.jpg',
-    //     work: 'Student IT',
-    //     desc: 'merol',
-    //     match: true
-    // }
-];
+    id: 10001,
+    name: 'Kayleigh',
+    age: 22,
+    photo: 'user0001.jpg',
+    work: 'Working at Google',
+    desc: 'lorem',
+    match: true
+}, {
+    seen: false,
+    id: 10002,
+    name: 'Vera',
+    age: 21,
+    photo: 'user0002.jpg',
+    work: 'Student CMD',
+    desc: 'lorem',
+    match: true
+}, {
+    seen: false,
+    id: 10003,
+    name: 'Isabella',
+    age: 18,
+    photo: 'user0003.jpg',
+    work: 'Student Teacher',
+    desc: 'lorem',
+    match: true
+}, {
+    seen: false,
+    id: 10004,
+    name: 'Sharon',
+    age: 19,
+    photo: 'user0004.jpg',
+    work: 'Student CMD',
+    desc: 'lorme',
+    match: false
+}, {
+    seen: false,
+    id: 10005,
+    name: 'Georgina',
+    age: 23,
+    photo: 'user0005.jpg',
+    work: 'Student Math',
+    desc: 'melor',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Roos',
+    age: 20,
+    photo: 'user0006.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}, {
+    seen: false,
+    id: 10006,
+    name: 'Caroline',
+    age: 21,
+    photo: 'user0007.jpg',
+    work: 'Student IT',
+    desc: 'merol',
+    match: true
+}];
 
-// let totalData = { liked: [], allUsers: [] };
+// object with 2 arrays, one for liked, one for all users.
 let totalData = { liked: [], users };
-
-// console.log(totalData)
-// users.forEach(function(person) {
-//     // if (person.seen == false) {
-//     //     totalData.allUsers.push(person);
-//     // }
-//     totalData.allUsers.push(person);
-
-// });
-
-// function createPersonArray() {
-//     users.forEach(function(person) {
-//         totalData.allUsers.push(person);
-//     })
-// }
-
-// console.log(totalData.allUsers)
 
 // var json = JSON.stringify(users);
 // console.log(json)
 
-// routing of EJS/Handlebars pages
+// routing of EJS pages
 app.get('/', (req, res) => {
-    // createPersonArray();
-    res.render('index', {
-        user: users
-    });
+    res.render('index', totalData);
 });
 
-
 app.post('/match', (req, res) => {
-    // tryout
-    // console.log('janus', req.body)
-    // createPersonArray();
     if (req.body.like) {
-        let x = (totalData.users.length - 1)
-        console.log(x);
+        let x = (totalData.users.length - 1);
+        // console.log(x);
         totalData.liked.push(totalData.users[x]);
         totalData.users.pop();
-        console.log(totalData.users);
-        res.render('match', { liked: totalData.liked[0] });
-
+        // console.log(totalData.users);
+        let z = (totalData.liked.length - 1);
+        res.render('match', { liked: totalData.liked[z] });
+        // console.log(totalData.liked);
     } else {
-        console.log("Er is niet op de like gedrukt");
         // schrijf logic voor de dislike.
+        console.log("Er is niet op de like gedrukt");
     }
-    // console.log(totalData.liked)
-    // console.log('-------')
-    // console.log(totalData.users)
-    // console.log(totalData.liked[0].name)
-
-
-    // totalData['allUsers'].splice(i);
-    // i--;
-
-
-    // // oude code
-
-    // // console.log('janus', req.body)
-    // createPersonArray();
-    // if (req.body.like) {
-    //     totalData.liked.push(totalData.allUsers[0]);
-    //     res.render('match', { users: totalData.liked[0] });
-    // } else {
-    //     // schrijf logic voor de dislike.
-    // }
-    // console.log(totalData.allUsers)
-    //     // console.log(totalData.liked[0].name)
-
-
-    // // totalData['allUsers'].splice(i);
-    // // i--;
 });
 
 
 app.get('/profile', (req, res) => {
-    res.render('profile', {
-        users: users,
-    });
+    res.render('profile', totalData);
 });
 
 app.get('/match', (req, res) => {
@@ -187,7 +125,8 @@ app.get('/match', (req, res) => {
 });
 
 app.get('/matchlist', (req, res) => {
-    res.render('matchlist');
+    res.render('matchlist', totalData);
+    console.log(totalData.liked)
 });
 
 app.get('/*', (req, res) => {

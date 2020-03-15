@@ -23,12 +23,12 @@
 //     dislike[i].addEventListener('click', ratePerson);
 // }
 
-var form = document.querySelector('form');
+// var form = document.querySelector('form');
 
-form.addEventListener('click', test, false);
+// form.addEventListener('click', test, false);
 
-function test() {
-    console.log(form);
-}
+// function test() {
+//     console.log(form);
+// }
 
-test();
+// test();

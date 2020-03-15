@@ -7,14 +7,14 @@ const mongo = require('mongodb');
 require('dotenv').config();
 
 // Server aanroepen
-let db = null;
-const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
+// let db = null;
+// const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
 
-mongo.MongoClient.connect(uri, { useUnifiedTopology: true }, function(err, client) {
-    if (err) throw err;
-    db = client.db(process.env.DB_NAME);
-    console.log('Your database will be connected..')
-})
+// mongo.MongoClient.connect(uri, { useUnifiedTopology: true }, function(err, client) {
+//     if (err) throw err;
+//     db = client.db(process.env.DB_NAME);
+//     console.log('Your database will be connected..')
+// })
 
 // Middleware 
 app.set('view engine', 'ejs');
@@ -198,7 +198,7 @@ app.post('/match', (req, res) => {
         // console.log(totalData.users);
         let z = (totalData.liked.length - 1);
         res.render('match', { liked: totalData.liked[z] });
-        // console.log(totalData.liked);
+        console.log("Er is op de like gedrukt");
     } else if (req.body.dislike) {
         let x = (totalData.users.length - 1);
         totalData.users.pop();
@@ -207,7 +207,6 @@ app.post('/match', (req, res) => {
         console.log("Er is niet op de like gedrukt");
     }
 });
-
 
 app.get('/profile', (req, res) => {
     res.render('profile', totalData);
@@ -225,49 +224,6 @@ app.get('/matchlist', (req, res) => {
 app.get('/*', (req, res) => {
     res.render('404');
 });
-
-
-// Get input: like button/checkbox and console this in the terminal
-// app.post('/', (req, res) => {
-//     // if user liked a person, this person gets added to the likedlist
-//     if ('likebutton' in req.body) {
-//         data['likedPeople'].push(data['persons'][i]);
-//     }
-//     // remove the (dis)liked person from the 'people (to display)' list
-//     data['persons'].splice(i);
-//     i--;
-// })
-
-// Delete someone from your likedlist
-// app.delete('/:id', (req, res) => {
-//     let id = req.params.id;
-
-//     data['likedPersons'] = data['likedPersons'].filter(function(value) {
-//         return value.id !== id;
-//     })
-// })
-
-// app.get('/who', test);
-// app.post('/swipe', urlencodedParser, posten);
-
-// app.post('/succes', urlEncodedParser, function(req, res) {
-//     console.log(req.body);
-//     res.send('welcome, ' + req.body.username)
-// })
-
-// function test1(req, res) {
-//     res.render('test1');
-// }
-
-// function test2(req, res) {
-//     res.render('test2', {
-//         data: req.body
-//     });
-// };
-
-function notfound(req, res) {
-    res.render('404');
-}
 
 // Server aanzetten
 app.listen(4000, () => console.log(`App is listening on ${PORT}!`));

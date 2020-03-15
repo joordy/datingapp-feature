@@ -27,19 +27,13 @@
                                 </h3>
                                 <form action="/match" method="POST">
                                     <label for="dislike">
-                                        <input type="submit" name="dislike" class="dislike" onchange="this.form.submit();" data-id="<%= users[i].id %>" value="kots">
+                                        <input type="submit" name="dislike" class="dislike" data-id="<%= users[i].id %>" value="X">
                                         <!-- <input type="checkbox" name="dislike" class="dislike" onchange="this.form.submit();" data-id="<%= users[i].id %>"> -->
                                     </label>
                                     <label for="like">
-                                        <input type="submit" name="like" class="like" onchange="this.form.submit();" data-id="<%= users[i].id %>" value="hartje">
+                                        <input type="submit" name="like" class="like" data-id="<%= users[i].id %>" class="btn fa-input" value="&#xf043;">
                                         <!-- <input type="checkbox" name="like" class="like" onchange="this.form.submit();" data-id="<%= users[i].id %>"> -->
                                     </label>
-                                    <!-- <div>
-                                        <label for="#">
-                                            <input type="checkbox">
-                                            <span class="check"></span>
-                                        </label>
-                                    </div>                                     -->
                                     <!-- <input type="submit" value="Verstuur"> -->
                                 </form>
                             </figcaption>

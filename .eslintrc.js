@@ -3,6 +3,7 @@ module.exports = {
         "semi": ["error", "always"],
         "quotes": ["error", "single"],
         "no-unused-vars": 0,
+        "indent": [true, "tabs", 2]
     },
 
     "parserOptions": {

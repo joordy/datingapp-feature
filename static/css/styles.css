@@ -103,6 +103,24 @@ figure figcaption form button img {
     height: 24px;
 }
 
+input[type=submit] {
+    text-decoration: none;
+    padding: .6em 4em;
+    /* width: 5em;
+    height: 40px; */
+    background-color: #D4D4D4;
+    border: none;
+    border-radius: 7px;
+}
+
+input:nth-of-type(2)[type=submit] {
+    background-color: #EB4B71;
+}
+
+.fa-input {
+    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 
 /* footer */
 
@@ -371,6 +389,10 @@ footer nav ul li {
 
 .matchlist header {
     margin-bottom: 2em;
+}
+
+.matchlist main {
+    height: 100%;
 }
 
 .matchlist main ul li {

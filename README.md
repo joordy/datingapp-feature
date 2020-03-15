@@ -20,7 +20,7 @@ You can clone my repository by typing the following command in your command-line
 
 ### 2. Install Node modules
 
-The package.json file contains all the required modules. You can install all the necessary modules (dependencies) with the following command:
+Now you can navigate to your app, with `cd datingapp-feature`. The package.json file contains all the required modules. You can install all the necessary modules (dependencies) with the following command:
 
 `npm install`
 
@@ -32,3 +32,8 @@ You can start the node-server now with the command:
 `npm run start`
 
 You can visit [localhost:4000](http://localhost:4000/) to view the application.
+
+
+## Used resources
+
+lorem

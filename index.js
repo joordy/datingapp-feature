@@ -4,24 +4,31 @@ const slug = require('slug');
 const app = express();
 const PORT = 4000;
 const mongo = require('mongodb');
+const assert = require('assert');
+
+// const mongoose = require('mongoose')
 require('dotenv').config();
 
-// Server aanroepen
-// let db = null;
-// const uri = process.env.DB_HOST + ':' + process.env.DB_PORT;
+// // Server aanroepen
+var db = null
+let url = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@" + process.env.DB_URL + process.env.DB_END;
 
-// mongo.MongoClient.connect(uri, { useUnifiedTopology: true }, function(err, client) {
-//     if (err) throw err;
-//     db = client.db(process.env.DB_NAME);
-//     console.log('Your database will be connected..')
-// })
+mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
+    if (err) {
+        throw err
+        console.log('Database is *niet* connected')
+    } else if (client) {
+        console.log('Connected to database');
+
+    }
+    db = client.db(process.env.DB_NAME)
+})
 
 // Middleware 
 app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // user data
 let users = [{
@@ -186,7 +193,71 @@ let totalData = { liked: [], users };
 
 // routing of EJS pages
 app.get('/', (req, res) => {
+    //     db.collection('allUsers').find().toArray(done)
+
+    //     function done(err, data) {
+    //         if (err) {
+    //             next(err)
+    //         } else {
+    //             res.render('test.ejs', { data: data })
+    //         }
+    //     }
+    // })
+
+    // function done(err, data) {
+    //     if (err) {
+    //         console.log('fail')
+    //     } else {
+    //         res.render('test', { users: collection })
+    //     }
+    // }
+    // // db.collection('allUsers').find().toArray(done)
+    // const collection = db.collection('allUsers');
+
+    // collection.find().toArray(complete);
+
+    // function complete(err, data) {
+    //     if (err) {
+    //         next(err)
+    //     } else {
+    //         res.render('index', { users: collection })
+    //     }
+    // }
+
+    // function complete(err, data) {
+    //     if (err) {
+    //         res.render('404');
+    //     } else if {
+    //         res.render('index', {
+    //             users: totalData
+    //         });
+    //     } else {
+    //         res.send('fail');
+    //     }
+    // }
+    // function done(err, data) {
+    //     if (err) {
+    //         next(err)
+    //     } else {
+    //         res.render('index', { totalData })
+    //     }
+    // }
+
     res.render('index', totalData);
+});
+
+app.get('/test', (req, res) => {
+    db.collection('users.allUsers').find().toArray(done)
+
+    function done(err, data) {
+        if (err) {
+            next(err)
+        } else {
+            console.log(data)
+            res.render('test.ejs', { data: data })
+        }
+    }
+
 });
 
 app.post('/match', (req, res) => {
@@ -207,6 +278,7 @@ app.post('/match', (req, res) => {
         console.log("Er is niet op de like gedrukt");
     }
 });
+
 
 app.get('/profile', (req, res) => {
     res.render('profile', totalData);

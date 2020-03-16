@@ -2,10 +2,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const slug = require('slug');
-const app = express();
-const PORT = 4000;
+const session = require('express-session')
 const mongo = require('mongodb');
 const assert = require('assert');
+const app = express();
+const PORT = 4000;
 require("dotenv").config();
 
 // Database aanroepen
@@ -28,79 +29,80 @@ app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'maximum',
+    saveUninitialized: false,
+    resave: false,
+    cookie: { secure: true }
+}))
+
+// Routes 
+app.get('/', home);
+app.get('/profile', profile);
+app.post('/', youHaveAnMatch);
+app.get('/matchlist', matchOverview);
+app.get('/*', errorNotFound);
 
 // object with 2 arrays, one for liked, one for all users.
-// let totalData = { liked: [], allUsers };
+// let totalData = { liked: [], a   llUsers };
 
-// app.get('/', (req, res) => {
-//     res.render('index', totalData);
-// });
-// function database() {
-//     db.collection('allUsers').find().toArray(done)
-
-//     function done(err, data) {
-//         if (err) {
-//             next(err);
-//         } else {
-//             // console.log(data);
-//             console.log(data)
-//         }
-//     }
-// } // database();
+// Routes functions 
+function home(req, res, next) {
+    db.collection('allUsers').find().toArray(getData); // collectie omzetten in array
+    function getData(err, data) {
+        if (err) {
+            next(err);
+        } else {
+            res.render('index.ejs', { users: data }); // data uit database halen en printen onder noemer 'users' in EJS templates
+        }
+    }
+};
 
 
-// Routing
-app.get('/', (req, res) => {
+function profile(req, res, next) {
     db.collection('allUsers').find().toArray(done); // collectie omzetten in array
-
     function done(err, data) {
         if (err) {
             next(err);
         } else {
             // console.log(data);
-            res.render('index.ejs', { users: data }); // data uit database halen en printen onder noemer 'users' in EJS templates
+            res.render('profile.ejs', { users: data }); // data uit database halen en printen onder noemer 'users' in EJS templates
         }
     }
+};
 
-});
 
-app.post('/match', (req, res) => {
-    db.collection('allUsers').find().toArray(done);
+function youHaveAnMatch(req, res, next) {
 
-    function done(err, data) {
-        console.log(data);
-    }
 
     if (req.body.like) {
-        // collection.find()
-        // if (req.body.like) {
-        //     console.log(users._id)
-        // }
-        console.log('user liked');
-        res.render('match.ejs');
+        db.collection('allUsers').updateOne({ match: false }, { $set: { match: true } })
 
-        // console.log(req.params.id)
-        // db.collection('allUsers').updateOne({ "match": false } { true })
+        console.log('user liked');
+        res.redirect('/');
         // code voor object.match updaten naar true, en deze toe te voegen aan collection likedUsers
     } else if (req.body.dislike) {
         console.log('user disliked');
         res.redirect('/');
         // code voor object.match = false en gebruiker "skippen"
     }
-});
+};
 
-app.get('/profile', (req, res) => {
-    res.render('profile', data);
-});
 
-app.get('/matchlist', (req, res) => {
-    res.render('matchlist', data);
-    console.log(totalData.liked)
-});
+function matchOverview(req, res, next) {
+    // res.render('matchlist', data);
+    // console.log(totalData.liked)
+    db.collection('allUsers').find().toArray(getData);
 
-app.get('/*', (req, res) => { // 404 page
-    res.render('404');
-});
+    function getData(err, data) {
+        console.log(data);
+    }
+}
 
-// Server aanzetten
+
+function errorNotFound(req, res, next) {
+    res.status(404).render('404');
+}
+
+// Server deploying
 app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));

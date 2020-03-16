@@ -15,16 +15,16 @@
 
     <main>
         <ul>
-            <% for (let i = 0; i < liked.length; i++) { %>
+            <% for (let i = 0; i < likedUsers.length; i++) { %>
                 <li>
                     <article id="person-options">
                         <figure>
-                            <img src="images/users/<%= liked[i].photo %>" alt="Liked user">
+                            <img src="images/users/<%= likedUsers[i].photo %>" alt="Liked user">
                         </figure>
                         <figcaption>
                             <h2>
-                                <%= liked[i].name %>,
-                                    <%= liked[i].age %>
+                                <%= likedUsers[i].name %>,
+                                    <%= likedUsers[i].age %>
                             </h2>
                             <p>You've got a match, lets talk!</p>
                         </figcaption>

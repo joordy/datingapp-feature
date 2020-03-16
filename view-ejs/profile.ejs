@@ -39,9 +39,13 @@
                 <p>Fitness, Reizen, Bakken</p>
                 <h4>About</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum.</p>
-                <form action="/match" method="POST">
-                    <button name="dislike" class="dislike"><img src=" images/dislike.svg " alt="dislike person "></button>
-                    <button name="like" class="like"><img src="images/like.svg" alt="liking person"></button>
+                <form action="/" method="POST">
+                    <label for="dislike">
+                        <input type="submit" name="dislike" class="dislike" data-id="<%= users[currentPerson].id %>" value="&times">
+                    </label>
+                    <label for="like">
+                        <input type="submit" name="like" class="like" data-id="<%= users[currentPerson]._id %>" value="❤">
+                    </label>
                 </form>
             </article>
         </section>

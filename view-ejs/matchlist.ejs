@@ -17,7 +17,7 @@
         <ul>
             <% for (let i = 0; i < liked.length; i++) { %>
                 <li>
-                    <article>
+                    <article id="person-options">
                         <figure>
                             <img src="images/users/<%= liked[i].photo %>" alt="Liked user">
                         </figure>
@@ -28,8 +28,11 @@
                             </h2>
                             <p>You've got a match, lets talk!</p>
                         </figcaption>
+                        <div class="delete">
+                            <img src="images/icons/delete.svg" alt="">
+                        </div>
                     </article>
-                    <div></div>
+                    <!-- <div></div> -->
                 </li>
                 <% }%>
         </ul>
@@ -37,6 +40,8 @@
     <footer>
         <%- include ("partials/footernav-matches.ejs") %>
     </footer>
+    <script src="scripts/script.js"></script>
+
 </body>
 
 </html>

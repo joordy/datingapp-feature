@@ -105,17 +105,18 @@ figure figcaption form button img {
 
 input[type=submit] {
     text-decoration: none;
-    padding: .6em 3.5em;
+    padding: .3em 13vw;
     /* width: 5em;
     height: 40px; */
     background-color: #D4D4D4;
     border: none;
     border-radius: 7px;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 label:nth-of-type(2) input[type=submit] {
     background-color: #EB4B71;
+    color: white;
 }
 
 

@@ -5,26 +5,28 @@ const app = express();
 const PORT = 4000;
 const mongo = require('mongodb');
 const assert = require('assert');
-require('dotenv').config();
-
-
-app.get('/test', (req, res) => {
-    res.render('test');
-});
+require("dotenv").config();
 
 // Server aanroepen
 let db = null;
-
-let url = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@" + process.env.DB_URL + process.env.DB_END;
+let userid = null;
+let userCollection = null;
+// let url = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@" + process.env.DB_URL + process.env.DB_END;
+// let url = 'mongodb+srv://joordy:mitchell@users-rouln.mongodb.net/users?retryWrites=true&w=majority'
+let url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_URL + process.env.DB_END
 
 mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
     if (err) {
-        console.log('Database is niet connected');
+        throw err
     } else if (client) {
-        console.log('Connectie met database is live');
+        console.log('Connected to database');
     }
     db = client.db(process.env.DB_NAME);
-});
+
+    // You're a user, with a specific ID (009), logged into the app, connected to your own DB collection...
+    allUsersCollection = db.collection("allUsers");
+})
+
 
 
 // Middleware 
@@ -195,8 +197,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // console.log(json)
 
 // routing of EJS pages
+// app.get('/', (req, res) => {
+//     res.render('index', totalData);
+// });
+
 app.get('/', (req, res) => {
-    res.render('index', totalData);
+    db.collection('allUsers').find().toArray(done)
+
+    function done(err, data) {
+        if (err) {
+            next(err);
+        } else {
+            console.log(data);
+            res.render('index.ejs', { data: data });
+        }
+    }
 });
 
 app.post('/match', (req, res) => {
@@ -218,22 +233,8 @@ app.post('/match', (req, res) => {
     }
 });
 
-app.get('/test', (req, res) => {
-    db.collection('allUsers').find().toArray(done)
-
-    function done(err, data) {
-        if (err) {
-            next(err);
-        } else {
-            console.log(data);
-            res.render('test', { data: data });
-        }
-    }
-});
-
-
 app.get('/profile', (req, res) => {
-    res.render('profile', totalData);
+    res.render('profile', data);
 });
 
 app.get('/match', (req, res) => {
@@ -241,7 +242,7 @@ app.get('/match', (req, res) => {
 });
 
 app.get('/matchlist', (req, res) => {
-    res.render('matchlist', totalData);
+    res.render('matchlist', data);
     console.log(totalData.liked)
 });
 

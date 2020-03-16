@@ -105,17 +105,23 @@ figure figcaption form button img {
 
 input[type=submit] {
     text-decoration: none;
-    padding: .6em 4em;
+    padding: .6em 3.5em;
     /* width: 5em;
     height: 40px; */
     background-color: #D4D4D4;
     border: none;
     border-radius: 7px;
+    font-size: 16px;
 }
 
-input:nth-of-type(2)[type=submit] {
+label:nth-of-type(2) input[type=submit] {
     background-color: #EB4B71;
 }
+
+
+/* input:nth-of-type(2)[type=submit] {
+    background-color: #EB4B71;
+} */
 
 .fa-input {
     font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -154,11 +160,17 @@ footer nav ul li {
     margin: 0;
 }
 
+.profile p {
+    padding: 0;
+    height: 0;
+    text-align: left;
+}
+
 .profile ul {
     position: absolute;
     z-index: 5;
     width: 90%;
-    margin: 5% 5% 0% 5%;
+    margin: 8% 5% 0% 5%;
     display: flex;
     justify-content: space-between;
 }
@@ -403,13 +415,22 @@ footer nav ul li {
 .matchlist article {
     /* background-color: hotpink; */
     display: flex;
-    width: 90vw;
-    margin: 0vw 5vw;
-    margin-top: 1em;
-    height: 100px;
+    width: 100%;
+    /* margin: 0vw 5vw; */
+    /* margin-top: 1em; */
+    margin-top: -2px;
+    height: 130px;
+    padding: 5px 0px;
+    border-top: 2px solid rgb(216, 216, 216);
+    border-bottom: 2px solid rgb(216, 216, 216);
 }
 
 .matchlist article figure {
+    position: absolute;
+    left: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    height: 100px;
     width: 100px;
 }
 
@@ -420,20 +441,48 @@ footer nav ul li {
 }
 
 .matchlist article figcaption {
-    margin-left: 1em;
+    position: absolute;
+    right: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
     width: 60%;
 }
 
+.delete {
+    width: 80px;
+    height: 100%;
+    background-color: #B00000;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.delete img {
+    display: block;
+    width: 30px;
+    margin: 0 auto;
+    margin-top: 2.8em;
+}
+
+
+/* .matchlist article div {
+    height: 95%;
+    width: 80px;
+    background-color: #B00000;
+    position: absolute;
+    top: -.5em;
+    right: -5vw;
+    opacity: 1;
+}
+
 .matchlist div {
-    /* display: inline-block; */
-    width: 90vw;
-    margin: 0vw 5vw;
+    width: 100%;
     height: 2px;
     border-radius: 1px;
     background-color: grey;
     opacity: .3;
     margin-top: .4em;
-}
+} */
 
 
 /******************************

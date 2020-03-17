@@ -13,6 +13,7 @@ My datingapp feature made for a school project. With this feature it will be pos
 
 * Feature
 * Getting started
+* Use my app
 * Database logic
 * Used resources
 
@@ -25,21 +26,23 @@ When the user is looking for a date, he wants to find one with mutial connection
 
 When you already have a connection with [Git](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html), and installed [NodeJs](https://www.webucator.com/how-to/how-install-nodejs-on-mac.cfm) on your computer you can easilly download my project. If you haven't already installed these programs, I recommend to do that first.
 
-### 1. Clone repository
+### Clone repository
 
 You can clone my repository by typing the following command in your command-line:
 
 `git clone https://github.com/joordy/datingapp-feature.git`
 
+## Use My App
 
-### 2. Install Node modules
+
+### 1. Install Node modules
 
 Now you can navigate to your app, with `cd datingapp-feature`. The package.json file contains all the required modules. You can install all the necessary modules (stored in the dependencies) with the following command:
 
 `npm install`
 
 
-### 3. Run! 
+### 2. Run! 
 
 You can start the node-server when you have reached the correct destination with commands like 'cd folderName'. Now with the command:
 

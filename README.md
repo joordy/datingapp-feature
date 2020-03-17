@@ -34,6 +34,19 @@ You can start the node-server now with the command:
 You can visit [localhost:4000](http://localhost:4000/) to view the application.
 
 
+## Database logic
+
+To understand what type of application I made, it's useful to know how the database of the application is structured. There is one big collection where all the users are placed in, included myself. The collection is called "allUsers" 
+
+![Database Users](https://user-images.githubusercontent.com/48051912/76903339-27330d00-689e-11ea-916a-4cd15117f9bf.png)
+
+![Collection allUsers](https://user-images.githubusercontent.com/48051912/76903342-29956700-689e-11ea-890d-aac84a976ff9.png)
+
+![Individual user](https://user-images.githubusercontent.com/48051912/76903341-29956700-689e-11ea-8c23-c918bc55291f.png)
+
+At the individual object, that references a user in the application, you ca nsee which ID, name, age, work etc. they have. 
+
+
 ## Used resources
 
 lorem

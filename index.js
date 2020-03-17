@@ -35,7 +35,7 @@ app.set('views', 'view-ejs');
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
-    secret: 'maximum',
+    secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
     cookie: { secure: true }

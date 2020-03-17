@@ -75,6 +75,9 @@ web_modules/
 .env
 .env.test
 
+# pdf
+.pdf
+
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 

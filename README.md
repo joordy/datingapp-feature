@@ -91,4 +91,6 @@ At the individual object, that references a user in the application, you ca nsee
 
 * MongoDB. (n.d.). — A Basic introduction to Mongo DB — MongoDB Node.JS Driver 1.4.9 documentation. Retrieved 2020, March 15, from https://mongodb.github.io/node-mongodb-native/api-articles/nodekoarticle1.html
 
+* NPM. (n.d.). - MongoDB npm | npm Documentation. Retrieved 2020, March 12, from https://www.npmjs.com/package/mongodb
+
 * NPM. (n.d.). — Npm-install | npm Documentation. Retrieved 2020, February 6, from https://docs.npmjs.com/cli/install

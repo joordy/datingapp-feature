@@ -6,6 +6,9 @@ My datingapp feature made for a school project. With this feature it will be pos
 
 To read the process of creating the like feature, and about the whole dating app, you can have a look in [my Wiki](https://github.com/joordy/datingapp-feature/wiki).
 
+## Feature
+
+> When the user is looking for a date, he wants to find one with mutial connections, so he can like them, and when the interest is mutual, they will be connected
 
 ## Getting started
 
@@ -20,7 +23,7 @@ You can clone my repository by typing the following command in your command-line
 
 ### 2. Install Node modules
 
-Now you can navigate to your app, with `cd datingapp-feature`. The package.json file contains all the required modules. You can install all the necessary modules (dependencies) with the following command:
+Now you can navigate to your app, with `cd datingapp-feature`. The package.json file contains all the required modules. You can install all the necessary modules (stored in the dependencies) with the following command:
 
 `npm install`
 
@@ -35,7 +38,7 @@ You can visit [localhost:4000](http://localhost:4000/) to view the application.
 
 ### 4. Database connection
 
-If you can't connect with the database cause a MongoObjectError, take free to contact me to ask for the `DB_URL` to make a connection to the database. 
+If you can't connect with the database cause a `MongoObjectError` or something like this, feel free to contact me to ask for the `DB_URL` link to make a connection to the database. 
 
 
 ## Database logic
@@ -58,4 +61,14 @@ At the individual object, that references a user in the application, you ca nsee
 
 ## Used resources
 
-lorem
+* NodeJS. (n.d.). Download. Retrieved 1 February 2020, from https://nodejs.org/en/download/
+
+* Express (n.d.). Express Routing. Retrieved 8 February 2020, from https://expressjs.com/en/guide/routing.html
+
+* Ivanovs, A. (2019, 13 juni). Alex Ivanovs. Retrieved 19 February 2020, from https://colorlib.com/wp/top-templating-engines-for-javascript/
+
+* EJS -- Embedded JavaScript templating. (n.d.). Retrieved February 20, 2020, from https://ejs.co/
+
+* MongoDB. (n.d.). Find — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/command/find/
+
+* MongoDB. (n.d.). Db.collection.updateOne() — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/

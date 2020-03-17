@@ -27,11 +27,15 @@ Now you can navigate to your app, with `cd datingapp-feature`. The package.json 
 
 ### 3. Run! 
 
-You can start the node-server now with the command:
+You can start the node-server when you have reached the correct destination with commands like 'cd folderName'. Now with the command:
 
-`npm run start`
+`node index.js`
 
-You can visit [localhost:4000](http://localhost:4000/) to view the application.
+You can visit [localhost:4000](http://localhost:4000/) to view the application. 
+
+### 4. Database connection
+
+If you can't connect with the database cause a MongoObjectError, take free to contact me to ask for the `DB_URL` to make a connection to the database. 
 
 
 ## Database logic

@@ -40,7 +40,12 @@ To understand what type of application I made, it's useful to know how the datab
 
 ![Database Users](https://user-images.githubusercontent.com/48051912/76903339-27330d00-689e-11ea-916a-4cd15117f9bf.png)
 
-![Collection-allUsers](https://user-images.githubusercontent.com/48051912/76903342-29956700-689e-11ea-890d-aac84a976ff9.png =250x250)
+On the left you see the selected database **users** In the database is one collection. The collection is called **allUsers**.
+
+
+![Collection-allUsers](https://user-images.githubusercontent.com/48051912/76903342-29956700-689e-11ea-890d-aac84a976ff9.png)
+
+The collection allUsers contains all the users that are registered to the dating application. Each user has his own Object. 
 
 ![Individual user](https://user-images.githubusercontent.com/48051912/76903341-29956700-689e-11ea-8c23-c918bc55291f.png)
 

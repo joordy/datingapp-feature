@@ -1,6 +1,6 @@
 # Datingapp Feature
 
-![Mockup Swiper](https://user-images.githubusercontent.com/48051912/76908080-21dac000-68a8-11ea-8f27-2f72d6c3c745.png)
+![export](https://user-images.githubusercontent.com/48051912/76908303-a299bc00-68a8-11ea-9632-99f15fedd6c0.png)
 
 Hello there! 
 

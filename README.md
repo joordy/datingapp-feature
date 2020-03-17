@@ -1,6 +1,14 @@
 # Datingapp Feature
 
 ![export](https://user-images.githubusercontent.com/48051912/76908303-a299bc00-68a8-11ea-9632-99f15fedd6c0.png)
+![export1](https://user-images.githubusercontent.com/48051912/76908438-f4dadd00-68a8-11ea-9bc7-b875a14c1b38.png)
+
+<img src="https://user-images.githubusercontent.com/48051912/76908303-a299bc00-68a8-11ea-9632-99f15fedd6c0.png" alt="Home"
+	title="Home screen" width="150" height="100" />
+  <img src="https://user-images.githubusercontent.com/48051912/76908438-f4dadd00-68a8-11ea-9bc7-b875a14c1b38.png" alt="Match"
+	title="Match page" width="150" height="100" />
+
+
 
 Hello there! 
 

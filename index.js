@@ -79,7 +79,7 @@ function home(req, res, next) {
 
 
 function profile(req, res, next) {
-    usersCollection.find({ match: false }).toArray(done);
+    usersCollection.find({ seen: false }).toArray(done);
 
     function done(err, users) {
         let datingUsers = deleteYourself(users)
@@ -103,12 +103,14 @@ function youHaveAnMatch(req, res, next) {
         let x = (completeCollection.length - 1);
 
         if (req.body.like) {
-            usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: true } })
+            usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: true, seen: true } })
+                // db.collection('datingUsers').updateOne({id: 1}, { $set: { prefGender: req.body.gender, prefMovies: req.body.movies}})
+
 
             console.log(`you have a like with ${completeCollection[x].name}, and the ID is ${completeCollection[x]._id}`)
             res.render('match.ejs', { users: datingUsers }) // data uit database halen en printen onder noemer 'users' in EJS templates
         } else if (req.body.dislike) {
-            usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false } })
+            usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false, seen: true } })
             completeCollection.pop();
             console.log(completeCollection)
             res.redirect('/');

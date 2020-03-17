@@ -16,11 +16,13 @@ My datingapp feature made for a school project. With this feature it will be pos
 * Use my app
 * Database logic
 * Used resources
+* License
 
 
 ## Feature
 
 When the user is looking for a date, he wants to find one with mutial connections, so he can like them, and when the interest is mutual, they will be connected
+
 
 ## Getting started
 
@@ -107,4 +109,4 @@ At the individual object, that references a user in the application, you ca nsee
 
 ## License
 
-[MIT License &copy;](https://github.com/joordy/complete-datingapp/blob/master/LICENSE)
+[MIT &copy; License](https://github.com/joordy/datingapp-feature/blob/master/LICENSE)

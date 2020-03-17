@@ -80,23 +80,12 @@ function youHaveAnMatch(req, res, next) {
 
     function check(err, data) {
         if (req.body.like) {
-            console.log('like')
-                // usersCollection.updateOne({ match: false }, { $set: { match: true } })
+            // usersCollection.updateOne({ match: false }, { $set: { match: true } })
+            console.log(`you have a like with ${data.name}`)
             res.render('match.ejs', { users: data }) // data uit database halen en printen onder noemer 'users' in EJS templates
         } else if (req.body.dislike) {
             console.log('dislike')
             res.redirect('/')
-        }
-    }
-
-
-
-    function newCollection(err, data) {
-        if (err) {
-            next(err);
-        } else {
-            // console.log(data);
-            res.render('match.ejs', { users: data }); // data uit database halen en printen onder noemer 'users' in EJS templates
         }
     }
     // let id = req.params.id;
@@ -139,13 +128,25 @@ function youHaveAnMatch(req, res, next) {
 
 
 function matchOverview(req, res, next) {
+    usersCollection.find().toArray(matchOrNot); // collectie omzetten in array
+
+    function matchOrNot(err, data) {
+        if (data.match == true) {
+            console.log('Je hebt al matches')
+            res.render('matchlist.ejs', { users: data })
+        } else {
+            console.log('je hebt nog geen matches')
+            res.render('matchlist.ejs', { users: data })
+        }
+    }
+
     // res.render('matchlist', data);
     // console.log(totalData.liked)
-    usersCollection.find().toArray(getData);
+    // usersCollection.find().toArray(getData);
 
-    function getData(err, data) {
-        console.log(data);
-    }
+    // function getData(err, data) {
+    //     console.log(data);
+    // }
 }
 
 

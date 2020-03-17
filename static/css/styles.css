@@ -426,6 +426,10 @@ footer nav ul li {
     border-bottom: 2px solid rgb(216, 216, 216);
 }
 
+.matchlist li:last-of-type {
+    margin-bottom: 5em;
+}
+
 .matchlist article figure {
     position: absolute;
     left: 1em;

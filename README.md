@@ -104,3 +104,7 @@ At the individual object, that references a user in the application, you ca nsee
 * NPM. (n.d.). - MongoDB npm | npm Documentation. Retrieved 2020, March 12, from https://www.npmjs.com/package/mongodb
 
 * NPM. (n.d.). — Npm-install | npm Documentation. Retrieved 2020, February 6, from https://docs.npmjs.com/cli/install
+
+## License
+
+[MIT License &copy;](https://github.com/joordy/complete-datingapp/blob/master/LICENSE)

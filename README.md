@@ -83,6 +83,8 @@ At the individual object, that references a user in the application, you ca nsee
 
 * MongoDB (n.d.). - Get Started with Atlas - MongoDB Atlas. Retrieved 2020, March 10, from https://docs.atlas.mongodb.com/getting-started/
 
+* MongoDb (n.d.). — Compass - MongoDB Compass. Retrieved 2020, March 11, from https://www.mongodb.com/products/compass
+
 * MongoDB. (n.d.). — Find — MongoDB Manual. Retrieved 2020, March 16, from https://docs.mongodb.com/manual/reference/command/find/
 
 * MongoDB. (n.d.). — Db.collection.updateOne() — MongoDB Manual. Retrieved 2020, 17 March, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/

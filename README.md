@@ -67,28 +67,28 @@ At the individual object, that references a user in the application, you ca nsee
 
 ## Used resources
 
-* NodeJS. (n.d.). — Download. Retrieved 1 February 2020, from https://nodejs.org/en/download/
+* NodeJS. (n.d.). — Download. Retrieved 2020, February 1, from https://nodejs.org/en/download/
 
-* Express (n.d.). — Express Routing. Retrieved 8 February 2020, from https://expressjs.com/en/guide/routing.html
+* Express (n.d.). — Express Routing. Retrieved  2020, February 8, from https://expressjs.com/en/guide/routing.html
 
-* The Net Ninja. (2016, 25 may). — NodeJS Tutorial for Beginners. Retrieved 12 February 2020. [Video file] From https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
+* The Net Ninja. (2016, May 25). — NodeJS Tutorial for Beginners. Retrieved 2020, February 12. [Video file] From https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
 
-* Top Templating engines for Javascript. (2019, 13 juni). — Alex Ivanovs. Retrieved 19 February 2020, from https://colorlib.com/wp/top-templating-engines-for-javascript/
+* Top Templating engines for Javascript. (2019, 13 June). — Alex Ivanovs. Retrieved 2020, February 19, from https://colorlib.com/wp/top-templating-engines-for-javascript/
 
-* EJS -- Embedded JavaScript templating. (n.d.). Retrieved February 20, 2020, from https://ejs.co/
+* EJS -- Embedded JavaScript templating. (n.d.). Retrieved 2020, February 20, from https://ejs.co/
 
-* PUG. (n.d.). — Getting Started – Pug. Retrieved February 21, 2020, from https://pugjs.org/api/getting-started.html
+* PUG. (n.d.). — Getting Started – Pug. Retrieved 2020, February 21, from https://pugjs.org/api/getting-started.html
 
-* Traversy Media (2016, 26 may). — NodeJS & Express from Scratch [Video file]. Retrieved February 22, 2020, from https://www.youtube.com/watch?v=Ad2ngx6CT0M
+* Traversy Media (2016, 26 May). — NodeJS & Express from Scratch [Video file]. Retrieved 2020, 22 February, from https://www.youtube.com/watch?v=Ad2ngx6CT0M
 
-* MongoDB (n.d.). - Get Started with Atlas - MongoDB Atlas. Retrieved 10 March 2020, from https://docs.atlas.mongodb.com/getting-started/
+* MongoDB (n.d.). - Get Started with Atlas - MongoDB Atlas. Retrieved 2020, March 10, from https://docs.atlas.mongodb.com/getting-started/
 
-* MongoDB. (n.d.). — Find — MongoDB Manual. Retrieved 16 March 2020, from https://docs.mongodb.com/manual/reference/command/find/
+* MongoDB. (n.d.). — Find — MongoDB Manual. Retrieved 2020, March 16, from https://docs.mongodb.com/manual/reference/command/find/
 
-* MongoDB. (n.d.). — Db.collection.updateOne() — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/
+* MongoDB. (n.d.). — Db.collection.updateOne() — MongoDB Manual. Retrieved 2020, 17 March, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/
 
-* MongoDB. (2018, 24 novemebr). — How to use MongoDB with NodeJS - Flaviocopes. Retrieved 16 March 2020, from https://flaviocopes.com/node-mongodb/
+* MongoDB. (2018, November 24). — How to use MongoDB with NodeJS - Flaviocopes. Retrieved 2020, 16 March, from https://flaviocopes.com/node-mongodb/
 
-* MongoDB. (n.d.). — A Basic introduction to Mongo DB — MongoDB Node.JS Driver 1.4.9 documentation. Retrieved 15 March 2020, from https://mongodb.github.io/node-mongodb-native/api-articles/nodekoarticle1.html
+* MongoDB. (n.d.). — A Basic introduction to Mongo DB — MongoDB Node.JS Driver 1.4.9 documentation. Retrieved 2020, March 15, from https://mongodb.github.io/node-mongodb-native/api-articles/nodekoarticle1.html
 
-* NPM. (n.d.). — Npm-install | npm Documentation. Retrieved 6 February 2020, from https://docs.npmjs.com/cli/install
+* NPM. (n.d.). — Npm-install | npm Documentation. Retrieved 2020, February 6, from https://docs.npmjs.com/cli/install

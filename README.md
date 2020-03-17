@@ -6,6 +6,18 @@ My datingapp feature made for a school project. With this feature it will be pos
 
 To read the process of creating the like feature, and about the whole dating app, you can have a look in [my Wiki](https://github.com/joordy/datingapp-feature/wiki).
 
+## Table of Content
+
+* Feature
+* Getting started
+* Database logic
+* Used resources
+*
+*
+*
+*
+
+
 ## Feature
 
 > When the user is looking for a date, he wants to find one with mutial connections, so he can like them, and when the interest is mutual, they will be connected
@@ -61,14 +73,24 @@ At the individual object, that references a user in the application, you ca nsee
 
 ## Used resources
 
-* NodeJS. (n.d.). Download. Retrieved 1 February 2020, from https://nodejs.org/en/download/
+* NodeJS. (n.d.). — Download. Retrieved 1 February 2020, from https://nodejs.org/en/download/
 
-* Express (n.d.). Express Routing. Retrieved 8 February 2020, from https://expressjs.com/en/guide/routing.html
+* Express (n.d.). — Express Routing. Retrieved 8 February 2020, from https://expressjs.com/en/guide/routing.html
 
-* Ivanovs, A. (2019, 13 juni). Alex Ivanovs. Retrieved 19 February 2020, from https://colorlib.com/wp/top-templating-engines-for-javascript/
+* The Net Ninja. (2016, 25 may). — NodeJS Tutorial for Beginners. Retrieved 12 February 2020. [Video file] From https://www.youtube.com/watch?v=w-7RQ46RgxU&list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp
+
+* Top Templating engines for Javascript. (2019, 13 juni). — Alex Ivanovs. Retrieved 19 February 2020, from https://colorlib.com/wp/top-templating-engines-for-javascript/
 
 * EJS -- Embedded JavaScript templating. (n.d.). Retrieved February 20, 2020, from https://ejs.co/
 
-* MongoDB. (n.d.). Find — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/command/find/
+* PUG. (n.d.). — Getting Started – Pug. Retrieved February 21, 2020, from https://pugjs.org/api/getting-started.html
 
-* MongoDB. (n.d.). Db.collection.updateOne() — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/
+* Traversy Media (2016, 26 may). — NodeJS & Express from Scratch [Video file]. Retrieved February 22, 2020, from https://www.youtube.com/watch?v=Ad2ngx6CT0M
+
+* MongoDB (n.d.). - Get Started with Atlas - MongoDB Atlas. Retrieved 10 March 2020, from https://docs.atlas.mongodb.com/getting-started/
+
+* MongoDB. (n.d.). — Find — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/command/find/
+
+* MongoDB. (n.d.). — Db.collection.updateOne() — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/
+
+* NPM. (n.d.). — Npm-install | npm Documentation. Retrieved 6 February 2020, from https://docs.npmjs.com/cli/install

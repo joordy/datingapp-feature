@@ -40,7 +40,7 @@ To understand what type of application I made, it's useful to know how the datab
 
 ![Database Users](https://user-images.githubusercontent.com/48051912/76903339-27330d00-689e-11ea-916a-4cd15117f9bf.png)
 
-![Collection-allUsers](https://user-images.githubusercontent.com/48051912/76903342-29956700-689e-11ea-890d-aac84a976ff9.png | width=100)
+![Collection-allUsers](https://user-images.githubusercontent.com/48051912/76903342-29956700-689e-11ea-890d-aac84a976ff9.png =250x250)
 
 ![Individual user](https://user-images.githubusercontent.com/48051912/76903341-29956700-689e-11ea-8c23-c918bc55291f.png)
 

@@ -1,22 +1,23 @@
-// Variabelen aanroepen
+// require packages
 const express = require('express');
 const bodyParser = require('body-parser');
 const slug = require('slug');
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const mongo = require('mongodb');
 const assert = require('assert');
 const app = express();
 const PORT = 4000;
 require("dotenv").config();
 
-// database variables
+// variables for database
 let yourSelf = 99999;
 // let allUsers = [];
 let db = null;
 let usersCollection = null;
 
 
-// Database aanroepen
+// call database
 let url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_URL + process.env.DB_END;
 mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
     if (err) {
@@ -34,11 +35,12 @@ app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    saveUninitialized: false,
-    resave: false,
-    cookie: { secure: true }
+    saveUninitialized: true,
+    resave: true
+        // cookie: { secure: true }
 }))
 
 
@@ -52,7 +54,7 @@ app.post('/match', youHaveAnMatch);
 app.get('/*', errorNotFound);
 
 
-// removes the first item of database collection (the user)
+// removes the first item of database collection (the user). Code will be used in three pages.
 function deleteYourself(remove_u) {
     let index = remove_u.findIndex(p => p.id === yourSelf);
     completeCollection = remove_u;
@@ -61,14 +63,16 @@ function deleteYourself(remove_u) {
 }
 
 
-// Routes functions 
+// Routes function home, graps every user with 'seen: false' and shows them on page.
 function home(req, res, next) {
+    // sessions showing in console, no idea how i could use sessions, cause it's stored in database forever. 
+    console.log(req.cookies)
+    console.log(req.session)
     usersCollection.find({ seen: false }).toArray(getData);
 
     function getData(err, users) {
         let datingUsers = deleteYourself(users)
 
-        // console.log(completeCollection)
         if (err) {
             next(err);
         } else {
@@ -78,6 +82,7 @@ function home(req, res, next) {
 };
 
 
+// Routes profile page, shows every person his profiledetailed page.
 function profile(req, res, next) {
     usersCollection.find({ seen: false }).toArray(done);
 
@@ -94,6 +99,8 @@ function profile(req, res, next) {
 };
 
 
+// Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page. 
+// When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered. 
 function youHaveAnMatch(req, res, next) {
     usersCollection.find({ seen: false }).toArray(check);
 
@@ -104,21 +111,18 @@ function youHaveAnMatch(req, res, next) {
 
         if (req.body.like) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: true, seen: true } })
-                // db.collection('datingUsers').updateOne({id: 1}, { $set: { prefGender: req.body.gender, prefMovies: req.body.movies}})
-
-
             console.log(`you have a like with ${completeCollection[x].name}, and the ID is ${completeCollection[x]._id}`)
             res.render('match.ejs', { users: datingUsers }) // data uit database halen en printen onder noemer 'users' in EJS templates
         } else if (req.body.dislike) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false, seen: true } })
-            completeCollection.pop();
-            console.log(completeCollection)
             res.redirect('/');
 
         }
     }
 };
 
+
+// Route match overview, graps every user with 'match: true' and will be displayed on overview page.
 function matchOverview(req, res, next) {
     usersCollection.find({ match: true }).toArray(matchOrNot);
 
@@ -133,82 +137,11 @@ function matchOverview(req, res, next) {
 }
 
 
+// Route for error page, 404.ejs will be loaded. 
 function errorNotFound(req, res, next) {
     res.status(404).render('404');
 }
 
 
-// Server deploying
+// Server deploying on https://localhost:4000.
 app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));
-
-
-
-
-
-// oude code die moet worden hergebruikt:
-
-
-
-
-
-
-
-
-// if (req.body.like) {
-//     let x = (totalData.allUsers.length - 1);
-//     // console.log(x);
-//     totalData.liked.push(totalData.allUsers[x]);
-//     totalData.allUsers.pop();
-//     // console.log(totalData.users);
-//     let z = (totalData.liked.length - 1);
-//     res.render('match', { liked: totalData.liked[z] });
-//     console.log("Er is op de like    gedrukt");
-// } else if (req.body.dislike) {
-//     let x = (totalData.allUsers.length - 1);
-//     totalData.allUsers.pop();
-//     res.redirect('/');
-//     // schrijf logic voor de dislike.
-//     console.log("Er is niet op de like gedrukt");
-// }
-
-
-
-// db.collection('dating-app').findOne({ _id: mongo.ObjectID('jouwMongoID') }, done);
-// usersCollection.updateOne(), update
-
-// let id = req.params.id;
-
-// // usersCollection.find().toArray();
-
-// // function checkForMatch(err, data) {
-// //     if (err) {
-// //         next(err);
-// //     } else {
-// //         let yourMatches = [];
-// //         let inWaitingLine = [];
-// //     }
-// // }
-
-// if (req.body.like) {
-//     // usersCollection.updateOne({ match: false }, { $set: { match: true } })
-//     if (data[i].likesYou == true) {
-//         console.log('user liked');
-//         usersCollection.copyTo('likedUsers')
-//         res.render('/match', { data });
-
-
-
-//     } else {
-//         res.redirect('index.ejs')
-//     }
-//     // code voor object.match updaten naar true, en deze toe te voegen aan collection likedUsers
-// } else if (req.body.dislike) {
-//     if {
-
-//     } else {
-
-//     }
-//     console.log('user disliked');
-//     res.redirect('/');
-//     // code voor object.match = false en gebruiker "skippen"
-// }

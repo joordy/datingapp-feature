@@ -2,9 +2,7 @@
 
 Hello there! 
 
-My datingapp feature made for a school project. With this feature it will be possible to like people, and when you have a match, you can find them again in an overview. Later in the project I will collaborate with other students to make the dating app up and running. 
-
-To read the process of creating the like feature, and about the whole dating app, you can have a look in [my Wiki](https://github.com/joordy/datingapp-feature/wiki).
+My datingapp feature made for a school project. With this feature it will be possible to like people, and when you have a match, you can find them again in an overview. Later in the project I will collaborate with other students to make the dating app up and running. To read the process of creating the like feature, and about the whole dating app, you can have a look in [my Wiki](https://github.com/joordy/datingapp-feature/wiki).
 
 ## Table of Content
 
@@ -12,10 +10,6 @@ To read the process of creating the like feature, and about the whole dating app
 * Getting started
 * Database logic
 * Used resources
-*
-*
-*
-*
 
 
 ## Feature
@@ -89,8 +83,12 @@ At the individual object, that references a user in the application, you ca nsee
 
 * MongoDB (n.d.). - Get Started with Atlas - MongoDB Atlas. Retrieved 10 March 2020, from https://docs.atlas.mongodb.com/getting-started/
 
-* MongoDB. (n.d.). — Find — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/command/find/
+* MongoDB. (n.d.). — Find — MongoDB Manual. Retrieved 16 March 2020, from https://docs.mongodb.com/manual/reference/command/find/
 
 * MongoDB. (n.d.). — Db.collection.updateOne() — MongoDB Manual. Retrieved 17 March 2020, from https://docs.mongodb.com/manual/reference/method/db.collection.updateOne/
+
+* MongoDB. (2018, 24 novemebr). — How to use MongoDB with NodeJS - Flaviocopes. Retrieved 16 March 2020, from https://flaviocopes.com/node-mongodb/
+
+* MongoDB. (n.d.). — A Basic introduction to Mongo DB — MongoDB Node.JS Driver 1.4.9 documentation. Retrieved 15 March 2020, from https://mongodb.github.io/node-mongodb-native/api-articles/nodekoarticle1.html
 
 * NPM. (n.d.). — Npm-install | npm Documentation. Retrieved 6 February 2020, from https://docs.npmjs.com/cli/install

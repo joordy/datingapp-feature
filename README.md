@@ -1,7 +1,8 @@
 # Datingapp Feature
 
-Hello there! ![export](https://user-images.githubusercontent.com/48051912/76907879-a7aa3b80-68a7-11ea-87dd-b59e7d110095.png)
+![export](https://user-images.githubusercontent.com/48051912/76907879-a7aa3b80-68a7-11ea-87dd-b59e7d110095.png)
 
+Hello there! 
 
 My datingapp feature made for a school project. With this feature it will be possible to like people, and when you have a match, you can find them again in an overview. Later in the project I will collaborate with other students to make the dating app up and running. To read the process of creating the like feature, and about the whole dating app, you can have a look in [my Wiki](https://github.com/joordy/datingapp-feature/wiki).
 

@@ -10,8 +10,8 @@ const PORT = 4000;
 require("dotenv").config();
 
 // database variables
-let yourSelf = 1;
-let allUsers = [];
+let yourSelf = 99999;
+// let allUsers = [];
 let db = null;
 let usersCollection = null;
 
@@ -52,102 +52,124 @@ app.post('/match', youHaveAnMatch);
 app.get('/*', errorNotFound);
 
 
-// // Functie voor jezelf in de database te verstoppen
-// function probeersel(req, res, next) {
-//     usersCollection.find().toArray(removeYourself); // collectie omzetten in array
-
-//     function removeYourself(err, users) {
-//         let index = users.findIndex(p => p.id === yourSelf);
-//         completeCollection = users;
-//         completeCollection.splice(index, 1);
-//         // console.log('hallo')
-//     };
-// }
-// // object with 2 arrays, one for liked, one for all users.
-// var test = function maakArray(err, users) {
-//     usersCollection.find().toArray(getData); // collectie omzetten in array
-
-//     // console.log('test')
-//     let index = users.findIndex(p => p.id === yourSelf);
-//     allUsers = users;
-//     allUsers.splice(index, 1);
-// }
+// removes the first item of database collection (the user)
+function deleteYourself(remove_u) {
+    let index = remove_u.findIndex(p => p.id === yourSelf);
+    completeCollection = remove_u;
+    completeCollection.splice(index, 1);
+    return completeCollection
+}
 
 
 // Routes functions 
 function home(req, res, next) {
     usersCollection.find({ seen: false }).toArray(getData);
 
-    // a()
-
     function getData(err, users) {
-        let index = users.findIndex(p => p.id === yourSelf);
-        completeCollection = users;
-        completeCollection.splice(index, 1);
+        let datingUsers = deleteYourself(users)
 
-
+        // console.log(completeCollection)
         if (err) {
             next(err);
         } else {
-            res.render('index.ejs', { users: users }); // data uit database halen en printen onder noemer 'users' in EJS templates
-
+            res.render('index.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
         }
     }
 };
 
-
-// let totalData = { likedUsers: [], allUsers }
-// console.log(allUsers)
-
-// test() // code function to remove yourself out of array
 
 function profile(req, res, next) {
     usersCollection.find({ match: false }).toArray(done);
 
     function done(err, users) {
-        // codeblock to remove yourself out of array
-        let index = users.findIndex(p => p.id === yourSelf);
-        completeCollection = users;
-        completeCollection.splice(index, 1);
+        let datingUsers = deleteYourself(users)
 
         if (err) {
             next(err);
         } else {
             // console.log(data);
-            res.render('profile.ejs', { users: users }); // data uit database halen en printen onder noemer 'users' in EJS templates
+            res.render('profile.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
         }
     }
 };
-
 
 
 function youHaveAnMatch(req, res, next) {
     usersCollection.find({ seen: false }).toArray(check);
 
     function check(err, users) {
-        // codeblock to remove yourself out of array
-        let index = users.findIndex(p => p.id === yourSelf);
-        completeCollection = users;
-        completeCollection.splice(index, 1);
-        // console.log(allUsers)
+        let datingUsers = deleteYourself(users)
 
         let x = (completeCollection.length - 1);
-
 
         if (req.body.like) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: true } })
 
             console.log(`you have a like with ${completeCollection[x].name}, and the ID is ${completeCollection[x]._id}`)
-            res.render('match.ejs', { users: users }) // data uit database halen en printen onder noemer 'users' in EJS templates
+            res.render('match.ejs', { users: datingUsers }) // data uit database halen en printen onder noemer 'users' in EJS templates
         } else if (req.body.dislike) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false } })
-                // totalData.allUsers.pop();
-                // console.log(totalData.allUsers)
-                // res.redirect('/');
-                // console.log('dislike')
+            completeCollection.pop();
+            console.log(completeCollection)
+            res.redirect('/');
+
         }
     }
 };
+
+function matchOverview(req, res, next) {
+    usersCollection.find({ match: true }).toArray(matchOrNot);
+
+    function matchOrNot(err, data) {
+        if (err) {
+            next(err);
+        } else {
+            console.log('Je matches')
+            res.render('matchlist.ejs', { users: data })
+        }
+    }
+}
+
+
+function errorNotFound(req, res, next) {
+    res.status(404).render('404');
+}
+
+
+// Server deploying
+app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));
+
+
+
+
+
+// oude code die moet worden hergebruikt:
+
+
+
+
+
+
+
+
+// if (req.body.like) {
+//     let x = (totalData.allUsers.length - 1);
+//     // console.log(x);
+//     totalData.liked.push(totalData.allUsers[x]);
+//     totalData.allUsers.pop();
+//     // console.log(totalData.users);
+//     let z = (totalData.liked.length - 1);
+//     res.render('match', { liked: totalData.liked[z] });
+//     console.log("Er is op de like    gedrukt");
+// } else if (req.body.dislike) {
+//     let x = (totalData.allUsers.length - 1);
+//     totalData.allUsers.pop();
+//     res.redirect('/');
+//     // schrijf logic voor de dislike.
+//     console.log("Er is niet op de like gedrukt");
+// }
+
+
 
 // db.collection('dating-app').findOne({ _id: mongo.ObjectID('jouwMongoID') }, done);
 // usersCollection.updateOne(), update
@@ -187,58 +209,4 @@ function youHaveAnMatch(req, res, next) {
 //     console.log('user disliked');
 //     res.redirect('/');
 //     // code voor object.match = false en gebruiker "skippen"
-// }
-
-
-function matchOverview(req, res, next) {
-    // usersCollection.find().toArray(matchOrNot); // collectie omzetten in array
-    // usersCollection.find({}), matchOrNot);
-    usersCollection.find({ match: true }).toArray(matchOrNot);
-    // , "ratedBy": { $nin: [userid]}
-    // ({_id: mongo.ObjectID('jouwMongoID')
-
-
-    function matchOrNot(err, data) {
-        if (err) {
-            next(err);
-        } else {
-            console.log('Je matches')
-            res.render('matchlist.ejs', { users: data })
-        }
-    }
-
-    // res.render('matchlist', data);
-    // console.log(totalData.liked)
-    // usersCollection.find().toArray(getData);
-
-    // function getData(err, data) {
-    //     console.log(data);
-    // }
-}
-
-
-function errorNotFound(req, res, next) {
-    res.status(404).render('404');
-}
-
-
-// Server deploying
-app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));
-
-
-// if (req.body.like) {
-//     let x = (totalData.allUsers.length - 1);
-//     // console.log(x);
-//     totalData.liked.push(totalData.allUsers[x]);
-//     totalData.allUsers.pop();
-//     // console.log(totalData.users);
-//     let z = (totalData.liked.length - 1);
-//     res.render('match', { liked: totalData.liked[z] });
-//     console.log("Er is op de like    gedrukt");
-// } else if (req.body.dislike) {
-//     let x = (totalData.allUsers.length - 1);
-//     totalData.allUsers.pop();
-//     res.redirect('/');
-//     // schrijf logic voor de dislike.
-//     console.log("Er is niet op de like gedrukt");
 // }

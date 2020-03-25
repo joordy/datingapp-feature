@@ -66,8 +66,8 @@ function deleteYourself(remove_u) {
 // Routes function home, graps every user with 'seen: false' and shows them on page.
 function home(req, res, next) {
     // sessions showing in console, no idea how i could use sessions, cause it's stored in database forever. 
-    console.log(req.cookies)
-    console.log(req.session)
+    // console.log(req.cookies)
+    // console.log(req.session)
     usersCollection.find({ seen: false }).toArray(getData);
 
     function getData(err, users) {
@@ -116,7 +116,6 @@ function youHaveAnMatch(req, res, next) {
         } else if (req.body.dislike) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false, seen: true } })
             res.redirect('/');
-
         }
     }
 };

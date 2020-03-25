@@ -15,8 +15,14 @@
         <% let currentPerson = users.length - 1; %>
 
             <section>
-                <img src="images/users/<%= users[currentPerson].photo %>" alt="Profile picture of user">
-                <img src="images/users/me.jpg" alt="">
+                <picture>
+                    <source srcset="images/users/<%= users[currentPerson].photo %>.jpg" media="(min-width: 800px)" alt="Profile picture of user">
+                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" />
+                </picture>
+                <picture>
+                    <source srcset="images/users/me.jpg" media="(min-width: 800px)" alt="Profile picture of user">
+                    <img src="images/users/memin.jpg" />
+                </picture>
                 <img src="images/matchheart.svg" alt="">
             </section>
             <section>

@@ -17,13 +17,19 @@
                 <li>
                     <figure>
                         <a href="profile">
-                            <img src="images/users/<%= users[i].photo %>" alt="Profile picture of ">
+                            <picture>
+                                <source srcset="images/users/<%= users[i].photo %>.jpg" media="(min-width: 800px)">
+                                <img src="images/users/<%= users[i].photo %>min.jpg" />
+                            </picture>
+                            <!-- <img src="images/users/<%= users[i].photo %>" alt="Profile picture of "> -->
                             <figcaption>
                                 <h2>
-                                    <%= users[i].name %>, <%= users[i].age %>
+                                    <%= users[i].name %>,
+                                        <%= users[i].age %>
                                 </h2>
                                 <h3>
-                                    <%= users[i].work %>, <%= users[i].id %>
+                                    <%= users[i].work %>,
+                                        <%= users[i].id %>
                                 </h3>
                                 <form action="/match" method="POST">
                                     <label for="dislike">

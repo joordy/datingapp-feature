@@ -566,3 +566,7 @@ footer nav ul li {
     padding: 1rem 0rem;
     border-radius: 5px;
 }
+
+@media all and (min-width:1008px) {
+    
+}

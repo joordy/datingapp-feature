@@ -6,7 +6,7 @@
         <title>Home</title>
 </head>
 
-<body>
+<body class="home">
     <header>
         <h1>Swiper</h1>
     </header>
@@ -15,14 +15,13 @@
         <ul>
             <% for (let i = 0; i <users.length; i++) { %>
                 <li>
-                    <figure>
+                    <section>
                         <a href="profile">
                             <picture>
                                 <source srcset="images/users/<%= users[i].photo %>.jpg" media="(min-width: 800px)">
                                 <img src="images/users/<%= users[i].photo %>min.jpg" />
                             </picture>
-                            <!-- <img src="images/users/<%= users[i].photo %>" alt="Profile picture of "> -->
-                            <figcaption>
+                            <article>
                                 <h2>
                                     <%= users[i].name %>,
                                         <%= users[i].age %>
@@ -38,11 +37,15 @@
                                     <label for="like">
                                         <input type="submit" name="like" class="like" data-id="<%= users[i]._id %>" value="❤">
                                     </label>
-                                    <!-- <input type="submit" value="Verstuur"> -->
+                                    <div>
+                                        <label for="undo">
+                                            <input type="submit" id="undo" name="undo" class="like" value="&crarr;">
+                                        </label>
+                                    </div>
                                 </form>
-                            </figcaption>
+                            </article>
                         </a>
-                    </figure>
+                    </section>
                 </li>
                 <% } %>
         </ul>

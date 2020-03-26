@@ -17,7 +17,10 @@
             </li>
         </ul>
         <section>
-            <img src="images/users/<%= users[currentPerson].photo %>.jpg" alt="Profile picture of ">
+            <picture>
+                <source srcset="images/users/<%= users[currentPerson].photo %>.jpg" media="(min-width: 768px)">
+                <img src="images/users/<%= users[currentPerson].photo %>min.jpg" />
+            </picture>
             <div></div>
             <div></div>
         </section>
@@ -30,20 +33,25 @@
                 <h3>
                     <%= users[currentPerson].work %>
                 </h3>
-                <div>
-                    <img src="images/users/<%= users[currentPerson].photo %>.jpg" alt="Profile picture of ">
-                    <img src="images/users/<%= users[currentPerson].photo %>.jpg" alt="Profile picture of ">
-                    <img src="images/users/<%= users[currentPerson].photo %>.jpg" alt="Profile picture of ">
+                <div class="images">
+                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" alt="Profile picture of ">
+                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" alt="Profile picture of ">
+                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" alt="Profile picture of ">
                 </div>
-                <h4>Hobby's</h4>
-                <p>Fitness, Reizen, Bakken</p>
-                <h4>About</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum.</p>
-                <form action="/" method="POST">
-                    <label for="dislike">
+                <div>
+                    <h4>Hobby's</h4>
+                    <p>Fitness, Reizen, Bakken</p>
+
+                </div>
+                <div>
+                    <h4>About</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum.</p>
+                </div>
+                <form action="/" method="POST"></form>
+                <label for="dislike">
                         <input type="submit" name="dislike" class="dislike" data-id="<%= users[currentPerson].id %>" value="&times">
                     </label>
-                    <label for="like">
+                <label for="like">
                         <input type="submit" name="like" class="like" data-id="<%= users[currentPerson]._id %>" value="❤">
                     </label>
                 </form>

@@ -45,13 +45,13 @@ app.use(session({
 
 
 // Page routes 
+app.get('/login', login);
+app.post('/', loginSuccesful);
 app.get('/', home);
 app.get('/profile', profile);
 app.get('/matchlist', matchOverview);
 app.post('/match', youHaveAnMatch);
-
-// Error route
-app.get('/*', errorNotFound);
+app.get('/*', errorNotFound); // Error route
 
 
 // removes the first item of database collection (the user). Code will be used in three pages.
@@ -63,11 +63,23 @@ function deleteYourself(remove_u) {
 }
 
 
-// Routes function home, graps every user with 'seen: false' and shows them on page.
-function home(req, res, next) {
+function login(req, res, next) {
     // sessions showing in console, no idea how i could use sessions, cause it's stored in database forever. 
     // console.log(req.cookies)
     // console.log(req.session)
+    res.render('login.ejs')
+}
+
+function loginSuccesful(req, res, next) {
+    req.session.currentUser = req.body.user;
+    userid = req.session.currentUser;
+    userCollection = db.collection("allUsers" + userid);
+    res.redirect("/");
+    console.log("You are now logged in as user " + userid);
+    console.log(req.session.currentUser)
+}
+
+function home(req, res, next) {
     usersCollection.find({ seen: false }).toArray(getData);
 
     function getData(err, users) {
@@ -77,9 +89,30 @@ function home(req, res, next) {
             next(err);
         } else {
             res.render('index.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
+            console.log(`Signed in as ${req.session.currentUser}`)
+
         }
     }
-};
+    // res.render('home.ejs', { users: datingUsers })
+
+}
+
+
+
+// // Routes function home, graps every user with 'seen: false' and shows them on page.
+// function home(req, res, next) {
+//     usersCollection.find({ seen: false }).toArray(getData);
+
+//     function getData(err, users) {
+//         let datingUsers = deleteYourself(users)
+
+//         if (err) {
+//             next(err);
+//         } else {
+//             res.render('home.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
+//         }
+//     }
+// };
 
 
 // Routes profile page, shows every person his profiledetailed page.
@@ -96,8 +129,7 @@ function profile(req, res, next) {
             res.render('profile.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
         }
     }
-};
-
+}
 
 // Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page. 
 // When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered. 

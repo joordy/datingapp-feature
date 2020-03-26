@@ -15,52 +15,60 @@ body {
     background-size: cover;
 }
 
+a {
+    text-decoration: none;
+    background-color: none;
+}
 
-/* header */
 
-header h1 {
+/***********************************
+            HOME 
+***********************************/
+
+.home header h1 {
     font-size: 2em;
     text-align: center;
     margin: 0.5em;
     color: #4E50B8;
 }
 
-
-/* main */
-
-a {
-    text-decoration: none;
-    background-color: none;
-}
-
-p {
-    padding: 0em 3em;
+.home p {
+    padding: 0em 5em;
     height: 80vh;
+    width: 100vw;
     text-align: center;
     display: table-cell;
     vertical-align: middle
 }
 
-main ul li {
-    position: absolute;
+.home main ul {
+    display: flex;
+    justify-content: center;
 }
 
-figure {
-    width: 90%;
+.home main ul li {
+    width: 90vw;
+    position: absolute;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.home section {
+    width: 100%;
     height: 75vh;
     margin: 0 auto;
     position: relative;
     border-radius: 10px;
 }
 
-figure img {
+.home section img {
     object-fit: cover;
     height: 75vh;
     border-radius: 10px;
     width: 100%;
 }
 
-figure figcaption {
+.home section article {
     background-color: white;
     width: 90%;
     margin: 0em 1em 1em 1em;
@@ -71,41 +79,24 @@ figure figcaption {
     border-radius: 10px;
 }
 
-figure figcaption h2 {
+.home section article h2 {
     font-size: 24px;
 }
 
-figure figcaption h3 {
+.home section article h3 {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 0.5em;
 }
 
-figure figcaption form {
+.home section article form {
     display: flex;
     justify-content: space-between;
 }
 
-figure figcaption form button {
-    width: 45%;
-    height: 40px;
-    background-color: #D4D4D4;
-    border: none;
-    border-radius: 7px;
-}
-
-figure figcaption form button:nth-of-type(2) {
-    background-color: #EB4B71;
-}
-
-figure figcaption form button img {
-    width: auto;
-    height: 24px;
-}
-
-input[type=submit] {
+.home input[type=submit] {
     text-decoration: none;
-    padding: .3em 13vw;
+    padding: .3em 1.4em;
     /* width: 5em;
     height: 40px; */
     background-color: #D4D4D4;
@@ -114,24 +105,25 @@ input[type=submit] {
     font-size: 24px;
 }
 
-label:nth-of-type(2) input[type=submit] {
+.home section article form div {
+    position: absolute;
+    right: 0;
+    top: .7em;
+    padding: .3em 1em;
+    color: white;
+}
+
+.home section article form div input[type=submit] {
+    padding: .4em .5em;
+    font-size: 16px;
+}
+
+.home label:nth-of-type(2) input[type=submit] {
     background-color: #EB4B71;
     color: white;
 }
 
-
-/* input:nth-of-type(2)[type=submit] {
-    background-color: #EB4B71;
-} */
-
-.fa-input {
-    font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-
-/* footer */
-
-footer {
+.home footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -140,7 +132,7 @@ footer {
     background-color: white;
 }
 
-footer nav ul {
+.home footer nav ul {
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -148,13 +140,13 @@ footer nav ul {
     margin-top: 1em;
 }
 
-footer nav ul li {
+.home footer nav ul li {
     list-style-type: none;
 }
 
 
 /***********************************
-            Profiel pagina 
+            PROFILE 
 ***********************************/
 
 .profile {
@@ -171,7 +163,7 @@ footer nav ul li {
     position: absolute;
     z-index: 5;
     width: 90%;
-    margin: 8% 5% 0% 5%;
+    margin: 3em 1em 0em 1em;
     display: flex;
     justify-content: space-between;
 }
@@ -180,17 +172,13 @@ footer nav ul li {
     list-style-type: none;
 }
 
-.profile section {
-    width: 100%;
-}
-
 .profile section:nth-of-type(1) {
-    background-color: hotpink;
+    width: 100%;
 }
 
 .profile section:nth-of-type(1) img {
     width: 100vw;
-    height: 100vh;
+    height: 50em;
     object-fit: cover;
     border-radius: 0;
     position: relative;
@@ -207,31 +195,38 @@ footer nav ul li {
 
 .profile section:nth-of-type(1) div:nth-of-type(2) {
     position: absolute;
-    z-index: 1;
-    top: 100vh;
-    height: 18em;
+    z-index: 3;
+    top: 50em;
+    height: 11em;
     background-color: #4E50B8;
 }
 
 .profile section:nth-of-type(2) {
     width: 90%;
     margin: 0% 5%;
-    padding: 5%;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
     background-color: white;
     position: absolute;
-    z-index: 3;
-    top: 25em;
-    border-radius: 15px 15px 15px 15px;
+    top: 30em;
+    left: 0;
+    z-index: 4;
+}
+
+.profile section:nth-of-type(2) article {
+    /* width: 90%;
+    margin: 0; */
+    width: 100%;
+    padding: 1em;
 }
 
 .profile section:nth-of-type(2) article h2 {
-    margin-top: 1em;
     font-size: 1.5em;
 }
 
 .profile section:nth-of-type(2) article h3 {
     font-size: 1em;
-    margin: 1em 0em 1.25em 0em;
+    margin: .5em 0em 1.25em 0em;
 }
 
 .profile section:nth-of-type(2) article h4 {
@@ -239,18 +234,26 @@ footer nav ul li {
     margin: 1em 0em 0.25em 0em;
 }
 
-.profile section:nth-of-type(2) article div {
+.profile section:nth-of-type(2) article .images {
     display: flex;
 }
 
-.profile section:nth-of-type(2) article div img {
-    width: 100px;
-    height: 100px;
+.profile section:nth-of-type(2) article .images img {
+    width: 80px;
+    height: 80px;
     object-fit: cover;
 }
 
+.profile section:nth-of-type(2) article div:nth-of-type(2) {
+    height: 3em;
+}
+
+.profile section:nth-of-type(2) article div:nth-of-type(3) {
+    height: 8em;
+}
+
 .profile section:nth-of-type(2) article form {
-    margin: 1em 0em 0em 0em;
+    margin: 0em 0em 2em 0em;
 }
 
 .profile section:nth-of-type(2) article form {
@@ -258,27 +261,24 @@ footer nav ul li {
     justify-content: space-between;
 }
 
-.profile section:nth-of-type(2) article form button {
-    width: 45%;
-    height: 40px;
+.profile input[type=submit] {
+    text-decoration: none;
+    padding: .3em 1.9em;
     background-color: #D4D4D4;
     border: none;
     border-radius: 7px;
+    font-size: 24px;
 }
 
-.profile section:nth-of-type(2) article form button:nth-of-type(2) {
+.profile section:nth-of-type(2) label:nth-of-type(2) input[type=submit] {
     background-color: #EB4B71;
-}
-
-.profile section:nth-of-type(2) article form button img {
-    width: auto;
-    height: 24px;
+    color: white;
 }
 
 
-/******************************
-        Match pagina 
-******************************/
+/***********************************
+            MATCH 
+***********************************/
 
 .match {
     background-image: none;
@@ -310,7 +310,7 @@ footer nav ul li {
 
 /* foto van match */
 
-.match section:nth-of-type(1) img:nth-of-type(1) {
+.match section:nth-of-type(1) picture:nth-of-type(1) img {
     transform: rotate(25deg);
     border-radius: 5px;
     margin-left: auto;
@@ -324,7 +324,7 @@ footer nav ul li {
 
 /* foto van jou */
 
-.match section:nth-of-type(1) img:nth-of-type(2) {
+.match section:nth-of-type(1) picture:nth-of-type(2) img {
     transform: rotate(-25deg);
     top: 6em;
     width: 30%;
@@ -336,7 +336,7 @@ footer nav ul li {
 
 /* foto van hart */
 
-.match section:nth-of-type(1) img:nth-of-type(3) {
+.match section:nth-of-type(1) img {
     transform: rotate(2deg);
     top: 11em;
     margin-left: auto;
@@ -389,9 +389,16 @@ footer nav ul li {
 }
 
 
-/******************************
-        Match pagina 
-******************************/
+/***********************************
+        MATCH OVERVIEW 
+***********************************/
+
+.matchlist header h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 0.5em;
+    color: #4E50B8;
+}
 
 .matchlist p {
     padding: 0;
@@ -409,13 +416,15 @@ footer nav ul li {
 }
 
 .matchlist main ul li {
+    display: flex;
+    width: 100vw;
     /* display: block; */
-    position: relative;
+    /* position: relative; */
 }
 
 .matchlist article {
     /* background-color: hotpink; */
-    display: flex;
+    /* display: flex; */
     width: 100%;
     /* margin: 0vw 5vw; */
     /* margin-top: 1em; */
@@ -489,6 +498,27 @@ footer nav ul li {
     margin-top: .4em;
 } */
 
+.matchlist footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 65px;
+    width: 100%;
+    background-color: white;
+}
+
+.matchlist footer nav ul {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.matchlist footer nav ul li {
+    list-style-type: none;
+}
+
 
 /******************************
         404 pagina 
@@ -535,38 +565,189 @@ footer nav ul li {
     border-radius: 5px;
 }
 
-
-/******************************
-        empty- pagina 
-******************************/
-
-.emptymatchlist section {
-    text-align: center;
+@media all and (min-width:500px) {
+    /*********************
+         Home 
+    ********************/
+    .home main ul li {
+        width: 70vw;
+        margin: 0 auto;
+    }
+    .home input[type=submit] {
+        padding: .3em 2em;
+    }
+    .home p {
+        padding: 0em 10em
+    }
+    /*********************
+         Profile 
+    ********************/
+    .profile input[type=submit] {
+        padding: .3em 3em;
+    }
 }
 
-.emptymatchlist section h1 {
-    font-size: 2rem;
-    margin-top: 10rem;
-}
-
-.emptymatchlist section p {
-    margin: 0vh 15vw;
-    margin: 3rem;
-}
-
-.emptymatchlist section a {
-    width: 70vw;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    background-color: #EF6A52;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 1rem 0rem;
-    border-radius: 5px;
+@media all and (min-width:768px) {
+    /******************************
+             Home     
+    ******************************/
+    .home main ul li {
+        width: 45em;
+        margin: 0 auto;
+        /* background-color: hotpink; */
+    }
+    .home p {
+        padding: 0em 15em
+    }
+    .home section {
+        width: 100%;
+        height: 75vh;
+        margin-left: 0;
+        /* display: flex; */
+        /* margin: 0 auto;
+        position: relative; */
+    }
+    .home section a {
+        width: 100%;
+    }
+    .home section img {
+        object-fit: cover;
+        height: 75vh;
+        border-radius: 20px 0px 0px 20px;
+        width: 65%;
+    }
+    .home section article {
+        height: 100%;
+        width: 35%;
+        background-color: white;
+        margin: 0em;
+        position: absolute;
+        top: 0vh;
+        right: 0vw;
+        min-width: top;
+        border-radius: 0px 20px 20px 0px;
+        padding: 30vh 1em 0em 2em;
+    }
+    .home section article h2 {
+        margin-bottom: 1em;
+        font-size: 24px;
+    }
+    .home section article h3 {
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 3.5em;
+    }
+    .home section article form {
+        margin: 0em 1em 0em 0em;
+        display: block;
+        text-align: center;
+    }
+    .home section article form input {
+        margin: .2em 0em;
+    }
+    .home section article .like {
+        padding: .3em 3.5em;
+    }
+    .home section article .dislike {
+        padding: .3em 3.63em;
+    }
+    /******************************
+             Profile     
+    ******************************/
+    .profile {
+        height: 100vh;
+    }
+    .profile ul {
+        position: absolute;
+        z-index: 5;
+        width: 50%;
+        margin: 8% 5% 0% 5%;
+        display: flex;
+        justify-content: space-between;
+        color: #B00000;
+    }
+    .profile ul li {
+        list-style-type: none;
+    }
+    .profile ul li a svg {
+        fill: black;
+    }
+    .profile section:nth-of-type(1) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60%;
+        height: 99vh;
+        width: 60vw;
+    }
+    .profile section:nth-of-type(1) img {
+        width: 100%;
+        height: 99vh;
+        object-fit: cover;
+    }
+    .profile section:nth-of-type(1) div {
+        visibility: hidden;
+        height: 0em;
+    }
+    .profile section:nth-of-type(1) div:nth-of-type(2) {
+        visibility: hidden;
+        height: 0em;
+    }
+    .profile section:nth-of-type(2) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 60vw;
+        width: 40vw;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+    }
+    .profile section:nth-of-type(2) article {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15vh;
+    }
+    .profile section:nth-of-type(2) article h2 {
+        font-size: 2em;
+    }
+    .profile section:nth-of-type(2) article h3 {
+        font-size: 1em;
+        font-weight: 400;
+        margin: .5em 0em 1.25em 0em;
+    }
+    .profile section:nth-of-type(2) article h4 {
+        font-size: 1.25em;
+        margin: 0em 0em 0.25em 0em;
+    }
+    .profile section:nth-of-type(2) article p {
+        margin: 1em 0em 0.25em 0em;
+    }
+    .profile section:nth-of-type(2) article div:nth-of-type(1) {
+        display: flex;
+    }
+    .profile section:nth-of-type(2) article div:nth-of-type(1) img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+    .profile section:nth-of-type(2) article div:nth-of-type(2) {
+        margin-top: 1em;
+        height: 6em;
+    }
+    .profile section:nth-of-type(2) article div:nth-of-type(3) {
+        height: 9em;
+    }
 }
 
 @media all and (min-width:1008px) {
-    
+    /* Home ********************/
+    /* main ul {
+        justify-content: start;
+    }
+    main ul li {
+        width: 50vw;
+        margin-left: 1em;
+    } */
+    /* Profile ********************/
 }

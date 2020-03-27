@@ -54,8 +54,8 @@ app.post('/match', youHaveAnMatch);
 app.get('/*', errorNotFound); // Error route
 
 
-// removes the first item of database collection (the user). Code will be used in three pages.
 function deleteYourself(remove_u) {
+    // removes the first item of database collection (the user). Code will be used in three pages.
     let index = remove_u.findIndex(p => p.id === yourSelf);
     completeCollection = remove_u;
     completeCollection.splice(index, 1);
@@ -64,6 +64,7 @@ function deleteYourself(remove_u) {
 
 
 async function login(req, res, next) {
+    // page to identify user
     try {
         res.render('login.ejs')
     } catch (err) {
@@ -73,6 +74,7 @@ async function login(req, res, next) {
 
 
 async function loginSuccesful(req, res, next) {
+    // After posting login form on '/login' route, succesfully send to index.ejs and session is printed in console to verify.
     try {
         req.session.currentUser = req.body.user;
         userid = req.session.currentUser;
@@ -86,8 +88,8 @@ async function loginSuccesful(req, res, next) {
 }
 
 
-// Routes function home, graps every user with 'seen: false' and shows them on page.
 async function home(req, res, next) {
+    // Routes function home, graps every user with 'seen: false' and shows them on page.
     try {
         let gebruikers = await usersCollection.find({ seen: false }).toArray();
         let datingUsers = deleteYourself(gebruikers)
@@ -100,8 +102,8 @@ async function home(req, res, next) {
 }
 
 
-// Routes profile page, shows every person his profiledetailed page.
 async function profile(req, res, next) {
+    // Routes profile page, shows every person his profiledetailed page.
     try {
         let users = await usersCollection.find({ seen: false }).toArray();
         let datingUsers = deleteYourself(users)
@@ -113,9 +115,9 @@ async function profile(req, res, next) {
 }
 
 
-// Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page. 
-// When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered. 
 async function youHaveAnMatch(req, res, next) {
+    // Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page. 
+    // When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered. 
     try {
         let users = await usersCollection.find({ seen: false }).toArray();
         let datingUsers = deleteYourself(users)
@@ -136,8 +138,8 @@ async function youHaveAnMatch(req, res, next) {
 }
 
 
-// Route match overview, graps every user with 'match: true' and will be displayed on overview page.
 async function matchOverview(req, res, next) {
+    // Route match overview, graps every user with 'match: true' and will be displayed on overview page.
     try {
         let matches = await usersCollection.find({ match: true }).toArray();
         res.render('matchlist.ejs', { users: matches })
@@ -147,8 +149,8 @@ async function matchOverview(req, res, next) {
 }
 
 
-// Route for error page, 404.ejs will be loaded. 
 async function errorNotFound(req, res, next) {
+    // Route for error page, 404.ejs will be loaded. 
     try {
         res.status(404).render('404');
     } catch (err) {

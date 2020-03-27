@@ -63,80 +63,61 @@ function deleteYourself(remove_u) {
 }
 
 
-function login(req, res, next) {
-    // sessions showing in console, no idea how i could use sessions, cause it's stored in database forever. 
-    // console.log(req.cookies)
-    // console.log(req.session)
-    res.render('login.ejs')
-}
-
-function loginSuccesful(req, res, next) {
-    req.session.currentUser = req.body.user;
-    userid = req.session.currentUser;
-    userCollection = db.collection("allUsers" + userid);
-    res.redirect("/");
-    console.log("You are now logged in as user " + userid);
-    console.log(req.session.currentUser)
-}
-
-function home(req, res, next) {
-    usersCollection.find({ seen: false }).toArray(getData);
-
-    function getData(err, users) {
-        let datingUsers = deleteYourself(users)
-
-        if (err) {
-            next(err);
-        } else {
-            res.render('index.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
-            console.log(`Signed in as ${req.session.currentUser}`)
-
-        }
+async function login(req, res, next) {
+    try {
+        res.render('login.ejs')
+    } catch (err) {
+        console.log(err)
     }
-    // res.render('home.ejs', { users: datingUsers })
-
 }
 
 
+async function loginSuccesful(req, res, next) {
+    try {
+        req.session.currentUser = req.body.user;
+        userid = req.session.currentUser;
+        userCollection = db.collection("allUsers" + userid);
+        res.redirect("/");
+        console.log("You are now logged in as user " + userid);
+        console.log(req.session.currentUser)
+    } catch (err) {
+        console.log(err)
+    }
+}
 
-// // Routes function home, graps every user with 'seen: false' and shows them on page.
-// function home(req, res, next) {
-//     usersCollection.find({ seen: false }).toArray(getData);
 
-//     function getData(err, users) {
-//         let datingUsers = deleteYourself(users)
+// Routes function home, graps every user with 'seen: false' and shows them on page.
+async function home(req, res, next) {
+    try {
+        let gebruikers = await usersCollection.find({ seen: false }).toArray();
+        let datingUsers = deleteYourself(gebruikers)
+        res.render('index.ejs', { users: gebruikers }); // data uit database halen en printen onder noemer 'users' in EJS templates
+        console.log(`Signed in as ${req.session.currentUser}`)
 
-//         if (err) {
-//             next(err);
-//         } else {
-//             res.render('home.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
-//         }
-//     }
-// };
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 
 // Routes profile page, shows every person his profiledetailed page.
-function profile(req, res, next) {
-    usersCollection.find({ seen: false }).toArray(done);
-
-    function done(err, users) {
+async function profile(req, res, next) {
+    try {
+        let users = await usersCollection.find({ seen: false }).toArray();
         let datingUsers = deleteYourself(users)
 
-        if (err) {
-            next(err);
-        } else {
-            // console.log(data);
-            res.render('profile.ejs', { users: datingUsers }); // data uit database halen en printen onder noemer 'users' in EJS templates
-        }
+        res.render('profile.ejs', { users: users })
+    } catch (err) {
+        console.log(err);
     }
 }
 
+
 // Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page. 
 // When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered. 
-function youHaveAnMatch(req, res, next) {
-    usersCollection.find({ seen: false }).toArray(check);
-
-    function check(err, users) {
+async function youHaveAnMatch(req, res, next) {
+    try {
+        let users = await usersCollection.find({ seen: false }).toArray();
         let datingUsers = deleteYourself(users)
 
         let x = (completeCollection.length - 1);
@@ -149,28 +130,30 @@ function youHaveAnMatch(req, res, next) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false, seen: true } })
             res.redirect('/');
         }
+    } catch (err) {
+        console.log(err);
     }
-};
+}
 
 
 // Route match overview, graps every user with 'match: true' and will be displayed on overview page.
-function matchOverview(req, res, next) {
-    usersCollection.find({ match: true }).toArray(matchOrNot);
-
-    function matchOrNot(err, data) {
-        if (err) {
-            next(err);
-        } else {
-            console.log('Je matches')
-            res.render('matchlist.ejs', { users: data })
-        }
+async function matchOverview(req, res, next) {
+    try {
+        let matches = await usersCollection.find({ match: true }).toArray();
+        res.render('matchlist.ejs', { users: matches })
+    } catch (err) {
+        console.log(err);
     }
 }
 
 
 // Route for error page, 404.ejs will be loaded. 
-function errorNotFound(req, res, next) {
-    res.status(404).render('404');
+async function errorNotFound(req, res, next) {
+    try {
+        res.status(404).render('404');
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 

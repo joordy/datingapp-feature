@@ -23,7 +23,7 @@ mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, clien
 });
 
 
-// Home page
+// Routing
 router.get('/login', login);
 router.post('/', loginSuccesful);
 router.get('/', home);
@@ -78,7 +78,6 @@ async function home(req, res, next) {
         let datingUsers = deleteYourself(gebruikers)
         res.render('index.ejs', { users: gebruikers }); // data uit database halen en printen onder noemer 'users' in EJS templates
         console.log(`Signed in as ${req.session.currentUser}`)
-
     } catch (err) {
         console.log(err)
     }

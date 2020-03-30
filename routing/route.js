@@ -1,8 +1,10 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-
 const mongo = require('mongodb');
 require("dotenv").config();
+// const db = require('../database/db.js')
+
+
 
 // variables for database
 let yourSelf = 99999;
@@ -20,12 +22,14 @@ mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, clien
     usersCollection = db.collection("allUsers");
 });
 
+
 // Home page
 router.get('/login', login);
 router.post('/', loginSuccesful);
 router.get('/', home);
 router.get('/profile', profile);
 router.get('/matchlist', matchOverview);
+router.get('/profiel', profiel);
 router.post('/match', youHaveAnMatch);
 router.get('/*', errorNotFound); // Error route
 
@@ -43,7 +47,9 @@ function deleteYourself(remove_u) {
 async function login(req, res, next) {
     // page to identify user
     try {
-        res.render('login.ejs')
+        let gebruikers = await usersCollection.find().toArray();
+
+        res.render('login.ejs', { users: gebruikers })
     } catch (err) {
         console.log(err)
     }
@@ -100,11 +106,18 @@ async function youHaveAnMatch(req, res, next) {
         let datingUsers = deleteYourself(users)
 
         let x = (completeCollection.length - 1);
+        let terugdraai = (completeCollection.length)
 
         if (req.body.like) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: true, seen: true } })
             console.log(`you have a like with ${completeCollection[x].name}, and the ID is ${completeCollection[x]._id}`)
             res.render('match.ejs', { users: datingUsers }) // data uit database halen en printen onder noemer 'users' in EJS templates
+        } else if (req.body.undo) {
+            console.log(completeCollection[terugdraai].name)
+                // console.log(terugdraai)
+            usersCollection.updateOne({ _id: (completeCollection[terugdraai]._id), seen: true }, { $set: { match: false, seen: false } })
+            console.log('Je hebt je match ongedaan gemaakt')
+            res.redirect('/');
         } else if (req.body.dislike) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false, seen: true } })
             res.redirect('/');
@@ -122,6 +135,16 @@ async function matchOverview(req, res, next) {
         res.render('matchlist.ejs', { users: matches })
     } catch (err) {
         console.log(err);
+    }
+}
+
+async function profiel(req, res, next) {
+    try {
+        // user printen in ejs
+        console.log(req.session.currentUser)
+        res.render('profiel.ejs', { users: req.session.currentUser })
+    } catch (err) {
+        console.l
     }
 }
 

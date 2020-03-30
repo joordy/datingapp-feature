@@ -43,7 +43,7 @@ function deleteYourself(remove_u) {
 }
 
 
-// functions
+// functions of routing
 async function login(req, res, next) {
     // page to identify user
     try {

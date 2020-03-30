@@ -6,13 +6,14 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const mongo = require('mongodb');
 const assert = require('assert');
-const routes = require('./routing/route.js');
-const app = express();
+const routing = require('./routing/route.js');
 require("dotenv").config();
+
+// Variables
+const app = express();
 const PORT = process.env.DB_PORT;
 
 // Middleware set-up
-app.use('/', routes); // using routing module
 app.set('view engine', 'ejs');
 app.set('views', 'view-ejs');
 app.use(express.static('static'));
@@ -24,6 +25,8 @@ app.use(session({
     resave: true
         // cookie: { secure: true }
 }));
+app.use('/', routing); // using routing module
+
 
 // Server deploying on https://localhost:4000.
 app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));

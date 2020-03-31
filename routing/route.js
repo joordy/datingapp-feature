@@ -2,15 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb');
 require("dotenv").config();
-// const db = require('../database/db.js')
 
-
-
-// variables for database
-let yourSelf = 99999;
+// connecting to database
 let db = null;
 let usersCollection = null;
-
 let url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_URL + process.env.DB_END;
 mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, client) {
     if (err) {
@@ -22,30 +17,34 @@ mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(err, clien
     usersCollection = db.collection("allUsers");
 });
 
-
 // Routing
 router.get('/login', login);
 router.post('/', loginSuccesful);
-router.get('/', home);
-router.get('/profile', profile);
-router.get('/matchlist', matchOverview);
-router.get('/profiel', profiel);
-router.post('/match', youHaveAnMatch);
+router.get('/', userIsSignedIn, home); // 
+router.get('/profile', userIsSignedIn, profile);
+router.get('/matchlist', userIsSignedIn, matchOverview);
+router.get('/profiel', userIsSignedIn, profiel);
+router.post('/logout', logOut)
+router.post('/match', userIsSignedIn, youHaveAnMatch);
 router.get('/*', errorNotFound); // Error route
 
-
 function deleteYourself(remove_u) {
-    // removes the first item of database collection (the user). Code will be used in three pages.
+    // To remove yourself from match page
+    let yourSelf = usersCollection.find({ _id: "5e70aa4227f0bb83c16adf21" });
     let index = remove_u.findIndex(p => p.id === yourSelf);
     completeCollection = remove_u;
-    completeCollection.splice(index, 1);
     return completeCollection
 }
 
+function userIsSignedIn(req, res, next) {
+    // To check, if the user is signed in, otherwise render index.ejs
+    if (req.session.currentUser != undefined) return next();
+    res.redirect('/login');
+}
 
 // functions of routing
 async function login(req, res, next) {
-    // page to identify user
+    // Login page
     try {
         let gebruikers = await usersCollection.find().toArray();
 
@@ -60,12 +59,9 @@ async function loginSuccesful(req, res, next) {
     try {
         req.session.currentUser = req.body.user;
         userid = req.session.currentUser;
-        userCollection = db.collection("allUsers" + userid);
-        res.redirect("/");
-        // console.log("You are now logged in as user " + userid);
+        // userCollection = db.collection("allUsers" + userid);
+        res.redirect('/');
         console.log(`You are now logged in as user ${req.session.currentUser}`)
-
-        console.log(req.session.currentUser)
     } catch (err) {
         console.log(err)
     }
@@ -75,7 +71,6 @@ async function home(req, res, next) {
     // Routes function home, graps every user with 'seen: false' and shows them on page.
     try {
         let gebruikers = await usersCollection.find({ seen: false }).toArray();
-        let datingUsers = deleteYourself(gebruikers)
         res.render('index.ejs', { users: gebruikers }); // data uit database halen en printen onder noemer 'users' in EJS templates
         console.log(`Signed in as ${req.session.currentUser}`)
     } catch (err) {
@@ -83,19 +78,15 @@ async function home(req, res, next) {
     }
 }
 
-
 async function profile(req, res, next) {
     // Routes profile page, shows every person his profiledetailed page.
     try {
         let users = await usersCollection.find({ seen: false }).toArray();
-        let datingUsers = deleteYourself(users)
-
         res.render('profile.ejs', { users: users })
     } catch (err) {
         console.log(err);
     }
 }
-
 
 async function youHaveAnMatch(req, res, next) {
     // Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page. 
@@ -105,18 +96,18 @@ async function youHaveAnMatch(req, res, next) {
         let datingUsers = deleteYourself(users)
 
         let x = (completeCollection.length - 1);
-        let terugdraai = (completeCollection.length)
+        // let terugdraai = (completeCollection.length)
 
         if (req.body.like) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: true, seen: true } })
             console.log(`you have a like with ${completeCollection[x].name}, and the ID is ${completeCollection[x]._id}`)
             res.render('match.ejs', { users: datingUsers }) // data uit database halen en printen onder noemer 'users' in EJS templates
         } else if (req.body.undo) {
-            console.log(completeCollection[terugdraai].name)
-                // console.log(terugdraai)
-            usersCollection.updateOne({ _id: (completeCollection[terugdraai]._id), seen: true }, { $set: { match: false, seen: false } })
-            console.log('Je hebt je match ongedaan gemaakt')
-            res.redirect('/');
+            // console.log(completeCollection[terugdraai].name)
+            //     // console.log(terugdraai)
+            // usersCollection.updateOne({ _id: (completeCollection[terugdraai]._id), seen: true }, { $set: { match: false, seen: false } })
+            // console.log('Je hebt je match ongedaan gemaakt')
+            // res.redirect('/');
         } else if (req.body.dislike) {
             usersCollection.updateOne({ _id: (completeCollection[x]._id) }, { $set: { match: false, seen: true } })
             res.redirect('/');
@@ -125,7 +116,6 @@ async function youHaveAnMatch(req, res, next) {
         console.log(err);
     }
 }
-
 
 async function matchOverview(req, res, next) {
     // Route match overview, graps every user with 'match: true' and will be displayed on overview page.
@@ -138,15 +128,25 @@ async function matchOverview(req, res, next) {
 }
 
 async function profiel(req, res, next) {
+    // Profiel page
     try {
-        // user printen in ejs
-        console.log(req.session.currentUser)
         res.render('profiel.ejs', { users: req.session.currentUser })
     } catch (err) {
         console.l
     }
 }
 
+async function logOut(req, res, next) {
+    // Logout function
+    try {
+        req.session.destroy();
+        console.log('session is destroyed.')
+        res.redirect('/login');
+
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 async function errorNotFound(req, res, next) {
     // Route for error page, 404.ejs will be loaded. 

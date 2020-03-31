@@ -22,11 +22,10 @@ app.use(cookieParser());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     saveUninitialized: true,
-    resave: true
-        // cookie: { secure: true }
+    resave: false,
+    secure: true
 }));
 app.use('/', routing); // using routing module
-
 
 // Server deploying on https://localhost:4000.
 app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));

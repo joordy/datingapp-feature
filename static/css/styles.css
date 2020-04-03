@@ -1,483 +1,468 @@
 *,
 html {
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    color: black;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: black;
 }
 
 body {
-    background: url('../images/background.png')no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background: url('../images/background.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {
-    text-decoration: none;
-    background-color: none;
+  text-decoration: none;
+  background-color: none;
 }
 
 header h1 {
-    font-size: 2em;
-    text-align: center;
-    margin: 0.5em;
-    color: #4E50B8;
+  font-size: 2em;
+  text-align: center;
+  margin: 0.5em;
+  color: #4e50b8;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 65px;
-    width: 100%;
-    background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  background-color: white;
 }
 
 footer nav ul {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1em;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
 }
 
 footer nav ul li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
+/******************************************************************************
+                                Home page
+*******************************************************************************/
 
-/***********************************
-            HOME 
-***********************************/
-
+/** Main **/
 .home p {
-    padding: 0em 5em;
-    height: 80vh;
-    width: 100vw;
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle
+  padding: 0em 5em;
+  height: 80vh;
+  width: 100vw;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .home main ul {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .home main ul li {
-    width: 90vw;
-    position: absolute;
-    justify-content: center;
-    list-style-type: none;
+  width: 90vw;
+  position: absolute;
+  justify-content: center;
+  list-style-type: none;
 }
 
 .home section {
-    width: 100%;
-    height: 75vh;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 10px;
+  width: 100%;
+  height: 75vh;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 10px;
 }
 
 .home section img {
-    object-fit: cover;
-    height: 75vh;
-    border-radius: 10px;
-    width: 100%;
+  object-fit: cover;
+  height: 75vh;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .home section article {
-    background-color: white;
-    width: 90%;
-    margin: 0em 1em 1em 1em;
-    position: absolute;
-    top: 52vh;
-    min-width: top;
-    padding: 1em;
-    border-radius: 10px;
+  background-color: white;
+  width: 90%;
+  margin: 0em 1em 1em 1em;
+  position: absolute;
+  top: 52vh;
+  min-width: top;
+  padding: 1em;
+  border-radius: 10px;
 }
 
 .home section article h2 {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .home section article h3 {
-    font-size: 16px;
-    font-weight: 300;
-    margin-bottom: 0.5em;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 0.5em;
 }
 
 .home section article form {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.home input[type=submit] {
-    text-decoration: none;
-    padding: .3em 1.4em;
-    /* width: 5em;
-    height: 40px; */
-    background-color: #D4D4D4;
-    border: none;
-    border-radius: 7px;
-    font-size: 24px;
+.home input[type='submit'] {
+  text-decoration: none;
+  padding: 0.3em 1.4em;
+  background-color: #d4d4d4;
+  border: none;
+  border-radius: 7px;
+  font-size: 24px;
 }
 
 .home section article form div {
-    position: absolute;
-    right: 0;
-    top: .7em;
-    padding: .3em 1em;
-    color: white;
+  position: absolute;
+  right: 0;
+  top: 0.7em;
+  padding: 0.3em 1em;
+  color: white;
 }
 
-.home section article form div input[type=submit] {
-    padding: .4em .5em;
-    font-size: 16px;
+.home section article form div input[type='submit'] {
+  padding: 0.4em 0.5em;
+  font-size: 16px;
 }
 
-.home label:nth-of-type(2) input[type=submit] {
-    background-color: #EB4B71;
-    color: white;
+.home label:nth-of-type(2) input[type='submit'] {
+  background-color: #eb4b71;
+  color: white;
 }
 
+/******************************************************************************
+                                Profile of users page
+*******************************************************************************/
 
-/***********************************
-            PROFILE 
-***********************************/
-
+/** Main **/
 .profile {
-    margin: 0;
+  margin: 0;
 }
 
 .profile p {
-    padding: 0;
-    height: 0;
-    text-align: left;
+  padding: 0;
+  height: 0;
+  text-align: left;
 }
 
 .profile ul {
-    position: absolute;
-    z-index: 5;
-    width: 90%;
-    margin: 3em 1em 0em 1em;
-    display: flex;
-    justify-content: space-between;
+  position: absolute;
+  z-index: 5;
+  width: 90%;
+  margin: 3em 1em 0em 1em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile ul li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .profile section:nth-of-type(1) {
-    width: 100%;
+  width: 100%;
 }
 
 .profile section:nth-of-type(1) img {
-    width: 100vw;
-    height: 50em;
-    object-fit: cover;
-    border-radius: 0;
-    position: relative;
+  width: 100vw;
+  height: 50em;
+  object-fit: cover;
+  border-radius: 0;
+  position: relative;
 }
 
 .profile section:nth-of-type(1) div {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    height: 50em;
-    width: 100vw;
-    background-image: linear-gradient(to top, rgba(78, 80, 184, 1), rgba(78, 80, 184, .1));
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  height: 50em;
+  width: 100vw;
+  background-image: linear-gradient(
+    to top,
+    rgba(78, 80, 184, 1),
+    rgba(78, 80, 184, 0.1)
+  );
 }
 
 .profile section:nth-of-type(1) div:nth-of-type(2) {
-    position: absolute;
-    z-index: 3;
-    top: 50em;
-    height: 11em;
-    background-color: #4E50B8;
+  position: absolute;
+  z-index: 3;
+  top: 50em;
+  height: 11em;
+  background-color: #4e50b8;
 }
 
 .profile section:nth-of-type(2) {
-    width: 90%;
-    margin: 0% 5%;
-    height: auto;
-    border-radius: 10px 10px 10px 10px;
-    background-color: white;
-    position: absolute;
-    top: 30em;
-    left: 0;
-    z-index: 4;
+  width: 90%;
+  margin: 0% 5%;
+  height: auto;
+  border-radius: 10px 10px 10px 10px;
+  background-color: white;
+  position: absolute;
+  top: 30em;
+  left: 0;
+  z-index: 4;
 }
 
 .profile section:nth-of-type(2) article {
-    /* width: 90%;
-    margin: 0; */
-    width: 100%;
-    padding: 1em;
+  width: 100%;
+  padding: 1em;
 }
 
 .profile section:nth-of-type(2) article h2 {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .profile section:nth-of-type(2) article h3 {
-    font-size: 1em;
-    margin: .5em 0em 1.25em 0em;
+  font-size: 1em;
+  margin: 0.5em 0em 1.25em 0em;
 }
 
 .profile section:nth-of-type(2) article h4 {
-    font-size: 1.25em;
-    margin: 1em 0em 0.25em 0em;
+  font-size: 1.25em;
+  margin: 1em 0em 0.25em 0em;
 }
 
 .profile section:nth-of-type(2) article .images {
-    display: flex;
+  display: flex;
 }
 
 .profile section:nth-of-type(2) article .images img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
 }
 
 .profile section:nth-of-type(2) article div:nth-of-type(2) {
-    height: 3em;
+  height: 3em;
 }
 
 .profile section:nth-of-type(2) article div:nth-of-type(3) {
-    height: 8em;
+  height: 8em;
 }
 
 .profile section:nth-of-type(2) article form {
-    margin: 0em 0em 2em 0em;
+  margin: 0em 0em 2em 0em;
 }
 
 .profile section:nth-of-type(2) article form {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.profile input[type=submit] {
-    text-decoration: none;
-    padding: .3em 1.9em;
-    background-color: #D4D4D4;
-    border: none;
-    border-radius: 7px;
-    font-size: 24px;
+.profile input[type='submit'] {
+  text-decoration: none;
+  padding: 0.3em 1.9em;
+  background-color: #d4d4d4;
+  border: none;
+  border-radius: 7px;
+  font-size: 24px;
 }
 
-.profile section:nth-of-type(2) label:nth-of-type(2) input[type=submit] {
-    background-color: #EB4B71;
-    color: white;
+.profile section:nth-of-type(2) label:nth-of-type(2) input[type='submit'] {
+  background-color: #eb4b71;
+  color: white;
 }
 
-
-/***********************************
-            MATCH 
-***********************************/
+/******************************************************************************
+                                Match page
+*******************************************************************************/
 
 .match {
-    background-image: none;
-    background-color: #4E50B8;
-    width: 100vw;
-    height: 100vh;
+  background-image: none;
+  background-color: #4e50b8;
+  width: 100vw;
+  height: 100vh;
 }
 
 .match section:nth-of-type(1) {
-    width: 80%;
-    margin: 0% 10%;
-    display: flex;
-    height: 17em;
+  width: 80%;
+  margin: 0% 10%;
+  display: flex;
+  height: 17em;
 }
 
 .match section:nth-of-type(1) img {
-    width: 40%;
-    max-width: 10em;
-    height: auto;
-    border-radius: 5px;
-    z-index: 1;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+  width: 40%;
+  max-width: 10em;
+  height: auto;
+  border-radius: 5px;
+  z-index: 1;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
-
-
-/* foto van match */
 
 .match section:nth-of-type(1) picture:nth-of-type(1) img {
-    transform: rotate(25deg);
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    top: 3em;
-    left: 0;
-    right: 0;
-    margin-right: 5em;
+  /* foto van match */
+  transform: rotate(25deg);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 3em;
+  left: 0;
+  right: 0;
+  margin-right: 5em;
 }
-
-
-/* foto van jou */
 
 .match section:nth-of-type(1) picture:nth-of-type(2) img {
-    transform: rotate(-25deg);
-    top: 6em;
-    width: 30%;
-    max-width: 7em;
-    height: auto;
-    margin-left: 5em;
+  /* foto van jou */
+  transform: rotate(-25deg);
+  top: 6em;
+  width: 30%;
+  max-width: 7em;
+  height: auto;
+  margin-left: 5em;
 }
 
-
-/* foto van hart */
-
 .match section:nth-of-type(1) img {
-    transform: rotate(2deg);
-    top: 11em;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+  /* foto van hart */
+  transform: rotate(2deg);
+  top: 11em;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 .match section:nth-of-type(2) {
-    display: block;
-    width: 100vw;
-    text-align: center;
-    margin-top: 6vh;
+  display: block;
+  width: 100vw;
+  text-align: center;
+  margin-top: 6vh;
 }
 
 .match section h1 {
-    font-size: 2em;
-    color: white;
+  font-size: 2em;
+  color: white;
 }
 
 .match section h2 {
-    color: white;
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 2em;
-    font-size: 1em;
-    font-weight: 400;
+  color: white;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2em;
+  font-size: 1em;
+  font-weight: 400;
 }
 
 .match section a {
-    width: 80vw;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    background-color: #EF6A52;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 1em 0em;
-    border-radius: 5px;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: #ef6a52;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1em 0em;
+  border-radius: 5px;
 }
 
 .match section a:nth-of-type(1) {
-    margin-top: 5vh;
+  margin-top: 5vh;
 }
 
 .match section a:nth-of-type(2) {
-    margin-top: 1.25em;
-    background-color: #8182C8;
+  margin-top: 1.25em;
+  background-color: #8182c8;
 }
 
-
-/***********************************
-        MATCH OVERVIEW 
-***********************************/
+/******************************************************************************
+                                Match overview page
+*******************************************************************************/
 
 .matchlist header h1 {
-    font-size: 2em;
-    text-align: center;
-    margin: 0.5em;
-    color: #4E50B8;
+  font-size: 2em;
+  text-align: center;
+  margin: 0.5em;
+  color: #4e50b8;
 }
 
 .matchlist p {
-    padding: 0;
-    height: 1em;
-    text-align: left;
-    display: block;
+  padding: 0;
+  height: 1em;
+  text-align: left;
+  display: block;
 }
 
 .matchlist header {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
 .matchlist main {
-    height: 100%;
+  height: 100%;
 }
 
 .matchlist main ul li {
-    display: flex;
-    width: 100vw;
-    /* display: block; */
-    /* position: relative; */
+  display: flex;
+  width: 100vw;
 }
 
 .matchlist article {
-    /* background-color: hotpink; */
-    /* display: flex; */
-    width: 100%;
-    /* margin: 0vw 5vw; */
-    /* margin-top: 1em; */
-    margin-top: -2px;
-    height: 130px;
-    padding: 5px 0px;
-    border-top: 2px solid rgb(216, 216, 216);
-    border-bottom: 2px solid rgb(216, 216, 216);
+  width: 100%;
+  margin-top: -2px;
+  height: 130px;
+  padding: 5px 0px;
+  border-top: 2px solid rgb(216, 216, 216);
+  border-bottom: 2px solid rgb(216, 216, 216);
 }
 
 .matchlist li:last-of-type {
-    margin-bottom: 5em;
+  margin-bottom: 5em;
 }
 
 .matchlist article figure {
-    position: absolute;
-    left: 1em;
-    margin-top: .5em;
-    margin-bottom: .5em;
-    height: 100px;
-    width: 100px;
+  position: absolute;
+  left: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  height: 100px;
+  width: 100px;
 }
 
 .matchlist article figure img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
 .matchlist article figcaption {
-    position: absolute;
-    right: 1em;
-    margin-top: .5em;
-    margin-bottom: .5em;
-    width: 60%;
+  position: absolute;
+  right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  width: 60%;
 }
 
 .delete {
-    width: 80px;
-    height: 100%;
-    background-color: #B00000;
-    position: absolute;
-    top: 0;
-    right: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #b00000;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .delete img {
-    display: block;
-    width: 30px;
-    margin: 0 auto;
-    margin-top: 2.8em;
+  display: block;
+  width: 30px;
+  margin: 0 auto;
+  margin-top: 2.8em;
 }
-
 
 /* .matchlist article div {
     height: 95%;
@@ -498,259 +483,247 @@ footer nav ul li {
     margin-top: .4em;
 } */
 
-
-/******************************
-        inlog pagina 
-******************************/
+/******************************************************************************
+                                Inlog page
+*******************************************************************************/
 
 .inlog form {
-    text-align: center;
+  text-align: center;
 }
 
 .inlog form div {
-    margin-top: 1em;
-    margin-bottom: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-
-/******************************
-        Profiel pagina 
-******************************/
+/******************************************************************************
+                                Profiel page
+*******************************************************************************/
 
 .profiel h2 {
-    text-align: center;
-    margin-top: 3em;
+  text-align: center;
+  margin-top: 3em;
 }
 
-
-/******************************
-        404 pagina 
-******************************/
+/******************************************************************************
+                                Error404 page
+*******************************************************************************/
 
 .error404 section {
-    width: 100%;
-    text-align: center;
-    margin-top: 5em;
+  width: 100%;
+  text-align: center;
+  margin-top: 5em;
 }
 
 .error404 section img {
-    width: 60%;
-    height: auto;
-    margin: 0 auto;
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
 }
 
 .error404 section h1 {
-    font-size: 2em;
-    margin-top: 2em;
+  font-size: 2em;
+  margin-top: 2em;
 }
 
 .error404 section h2 {
-    font-size: 1.5rem;
-    color: #878787;
-    margin-bottom: 1.5em;
+  font-size: 1.5rem;
+  color: #878787;
+  margin-bottom: 1.5em;
 }
 
 .error404 section p {
-    margin: 0vh 15vw;
-    margin-bottom: 3em;
+  margin: 0vh 15vw;
+  margin-bottom: 3em;
 }
 
 .error404 section a {
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: #ef6a52;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1em 0em;
+  border-radius: 5px;
+}
+
+/******************************************************************************
+                                Animations using JS
+*******************************************************************************/
+
+@media all and (min-width: 500px) {
+  /****************************************************
+                        Home
+  ****************************************************/
+  .home main ul li {
     width: 70vw;
-    display: flex;
-    justify-content: center;
     margin: 0 auto;
-    background-color: #EF6A52;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 1em 0em;
-    border-radius: 5px;
+  }
+  .home input[type='submit'] {
+    padding: 0.3em 2em;
+  }
+  .home p {
+    padding: 0em 10em;
+  }
+  /****************************************************
+                        Profile
+  ****************************************************/
+  .profile input[type='submit'] {
+    padding: 0.3em 3em;
+  }
 }
 
-@media all and (min-width:500px) {
-    /*********************
-         Home 
-    ********************/
-    .home main ul li {
-        width: 70vw;
-        margin: 0 auto;
-    }
-    .home input[type=submit] {
-        padding: .3em 2em;
-    }
-    .home p {
-        padding: 0em 10em
-    }
-    /*********************
-         Profile 
-    ********************/
-    .profile input[type=submit] {
-        padding: .3em 3em;
-    }
+@media all and (min-width: 768px) {
+  /****************************************************
+                        Home
+  ****************************************************/
+  .home main ul li {
+    width: 45em;
+    margin: 0 auto;
+  }
+  .home p {
+    padding: 0em 15em;
+  }
+  .home section {
+    width: 100%;
+    height: 75vh;
+    margin-left: 0;
+  }
+  .home section a {
+    width: 100%;
+  }
+  .home section img {
+    object-fit: cover;
+    height: 75vh;
+    border-radius: 20px 0px 0px 20px;
+    width: 65%;
+  }
+  .home section article {
+    height: 100%;
+    width: 35%;
+    background-color: white;
+    margin: 0em;
+    position: absolute;
+    top: 0vh;
+    right: 0vw;
+    min-width: top;
+    border-radius: 0px 20px 20px 0px;
+    padding: 30vh 1em 0em 2em;
+  }
+  .home section article h2 {
+    margin-bottom: 1em;
+    font-size: 24px;
+  }
+  .home section article h3 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 3.5em;
+  }
+  .home section article form {
+    margin: 0em 1em 0em 0em;
+    display: block;
+    text-align: center;
+  }
+  .home section article form input {
+    margin: 0.2em 0em;
+  }
+  .home section article .like {
+    padding: 0.3em 3.5em;
+  }
+  .home section article .dislike {
+    padding: 0.3em 3.63em;
+  }
+  /****************************************************
+                        Profile of user
+  ****************************************************/
+  .profile {
+    height: 100vh;
+  }
+  .profile ul {
+    position: absolute;
+    z-index: 5;
+    width: 50%;
+    margin: 8% 5% 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    color: #b00000;
+  }
+  .profile ul li {
+    list-style-type: none;
+  }
+  .profile ul li a svg {
+    fill: black;
+  }
+  .profile section:nth-of-type(1) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60%;
+    height: 99vh;
+    width: 60vw;
+  }
+  .profile section:nth-of-type(1) img {
+    width: 100%;
+    height: 99vh;
+    object-fit: cover;
+  }
+  .profile section:nth-of-type(1) div {
+    visibility: hidden;
+    height: 0em;
+  }
+  .profile section:nth-of-type(1) div:nth-of-type(2) {
+    visibility: hidden;
+    height: 0em;
+  }
+  .profile section:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 60vw;
+    width: 40vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+  .profile section:nth-of-type(2) article {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 15vh;
+  }
+  .profile section:nth-of-type(2) article h2 {
+    font-size: 2em;
+  }
+  .profile section:nth-of-type(2) article h3 {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0.5em 0em 1.25em 0em;
+  }
+  .profile section:nth-of-type(2) article h4 {
+    font-size: 1.25em;
+    margin: 0em 0em 0.25em 0em;
+  }
+  .profile section:nth-of-type(2) article p {
+    margin: 1em 0em 0.25em 0em;
+  }
+  .profile section:nth-of-type(2) article div:nth-of-type(1) {
+    display: flex;
+  }
+  .profile section:nth-of-type(2) article div:nth-of-type(1) img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  .profile section:nth-of-type(2) article div:nth-of-type(2) {
+    margin-top: 1em;
+    height: 6em;
+  }
+  .profile section:nth-of-type(2) article div:nth-of-type(3) {
+    height: 9em;
+  }
 }
 
-@media all and (min-width:768px) {
-    /******************************
-             Home     
-    ******************************/
-    .home main ul li {
-        width: 45em;
-        margin: 0 auto;
-        /* background-color: hotpink; */
-    }
-    .home p {
-        padding: 0em 15em
-    }
-    .home section {
-        width: 100%;
-        height: 75vh;
-        margin-left: 0;
-        /* display: flex; */
-        /* margin: 0 auto;
-        position: relative; */
-    }
-    .home section a {
-        width: 100%;
-    }
-    .home section img {
-        object-fit: cover;
-        height: 75vh;
-        border-radius: 20px 0px 0px 20px;
-        width: 65%;
-    }
-    .home section article {
-        height: 100%;
-        width: 35%;
-        background-color: white;
-        margin: 0em;
-        position: absolute;
-        top: 0vh;
-        right: 0vw;
-        min-width: top;
-        border-radius: 0px 20px 20px 0px;
-        padding: 30vh 1em 0em 2em;
-    }
-    .home section article h2 {
-        margin-bottom: 1em;
-        font-size: 24px;
-    }
-    .home section article h3 {
-        font-size: 16px;
-        font-weight: 300;
-        margin-bottom: 3.5em;
-    }
-    .home section article form {
-        margin: 0em 1em 0em 0em;
-        display: block;
-        text-align: center;
-    }
-    .home section article form input {
-        margin: .2em 0em;
-    }
-    .home section article .like {
-        padding: .3em 3.5em;
-    }
-    .home section article .dislike {
-        padding: .3em 3.63em;
-    }
-    /******************************
-             Profile     
-    ******************************/
-    .profile {
-        height: 100vh;
-    }
-    .profile ul {
-        position: absolute;
-        z-index: 5;
-        width: 50%;
-        margin: 8% 5% 0% 5%;
-        display: flex;
-        justify-content: space-between;
-        color: #B00000;
-    }
-    .profile ul li {
-        list-style-type: none;
-    }
-    .profile ul li a svg {
-        fill: black;
-    }
-    .profile section:nth-of-type(1) {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 60%;
-        height: 99vh;
-        width: 60vw;
-    }
-    .profile section:nth-of-type(1) img {
-        width: 100%;
-        height: 99vh;
-        object-fit: cover;
-    }
-    .profile section:nth-of-type(1) div {
-        visibility: hidden;
-        height: 0em;
-    }
-    .profile section:nth-of-type(1) div:nth-of-type(2) {
-        visibility: hidden;
-        height: 0em;
-    }
-    .profile section:nth-of-type(2) {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 60vw;
-        width: 40vw;
-        height: 100vh;
-        margin: 0;
-        border-radius: 0;
-    }
-    .profile section:nth-of-type(2) article {
-        width: 90%;
-        margin: 0 auto;
-        margin-top: 15vh;
-    }
-    .profile section:nth-of-type(2) article h2 {
-        font-size: 2em;
-    }
-    .profile section:nth-of-type(2) article h3 {
-        font-size: 1em;
-        font-weight: 400;
-        margin: .5em 0em 1.25em 0em;
-    }
-    .profile section:nth-of-type(2) article h4 {
-        font-size: 1.25em;
-        margin: 0em 0em 0.25em 0em;
-    }
-    .profile section:nth-of-type(2) article p {
-        margin: 1em 0em 0.25em 0em;
-    }
-    .profile section:nth-of-type(2) article div:nth-of-type(1) {
-        display: flex;
-    }
-    .profile section:nth-of-type(2) article div:nth-of-type(1) img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-    }
-    .profile section:nth-of-type(2) article div:nth-of-type(2) {
-        margin-top: 1em;
-        height: 6em;
-    }
-    .profile section:nth-of-type(2) article div:nth-of-type(3) {
-        height: 9em;
-    }
-}
-
-@media all and (min-width:1008px) {
-    /* Home ********************/
-    /* main ul {
-        justify-content: start;
-    }
-    main ul li {
-        width: 50vw;
-        margin-left: 1em;
-    } */
-    /* Profile ********************/
+@media all and (min-width: 1008px) {
 }

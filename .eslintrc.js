@@ -1,16 +1,20 @@
 module.exports = {
-    "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "single"],
-        "no-unused-vars": 0,
-        "indent": [true, "tabs", 2]
-    },
+  rules: {
+    semi: ['error', 'always'],
+    quotes: ['error', 'single'],
+    'no-unused-vars': 0,
+    indent: [false, 'spaces', 2]
+  },
 
-    "parserOptions": {
-        "ecmaVersion": 2017
-    },
+  parserOptions: {
+    ecmaVersion: 2020
+  },
 
-    "env": {
-        "es6": true
-    }
+  env: {
+    node: true,
+    es6: true,
+    es7: true,
+    es8: true,
+    browser: true
+  }
 };

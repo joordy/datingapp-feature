@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include ("partials/head.ejs") %>
-        <title>Profile of User</title>
-</head>
+    <title>Profile of User</title>
+  </head>
 
-<body class="profiel">
+  <body class="profiel">
     <header>
-        <h1>Swiper</h1>
+      <h1>Swiper</h1>
     </header>
     <main>
-        <h2>
-            Welcome
-            <%= users %>!
-        </h2>
-        <form action="logout" method="POST">
-            <input type="submit" value="logout">
-            <!-- <button type="submit">Logout</button> -->
-        </form>
+      <h2>
+        Welcome <%= users %>!
+      </h2>
+      <form action="logout" method="POST">
+        <input type="submit" value="logout" />
+      </form>
     </main>
     <footer>
-        <%- include ("partials/footernav-profile.ejs") %>
+      <%- include ("partials/footernav-profile.ejs") %>
     </footer>
-</body>
-
+  </body>
 </html>

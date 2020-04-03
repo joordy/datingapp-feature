@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include ("partials/head.ejs") %>
-        <title>Match-List</title>
-</head>
+    <title>Match-List</title>
+  </head>
 
-<body class="matchlist">
+  <body class="matchlist">
     <header>
-        <a href="/">
-            <h1>Swiper</h1>
-        </a>
+      <a href="/">
+        <h1>Swiper</h1>
+      </a>
     </header>
 
     <main>
-        <ul>
-            <% for (let i = 0; i < users.length; i++) { %>
-                <li>
-                    <article id="person-options">
-                        <figure>
-                            <img src="images/users/<%= users[i].photo %>.jpg" alt="Liked user">
-                        </figure>
-                        <figcaption>
-                            <h2>
-                                <%= users[i].name %>,
-                                    <%= users[i].age %>
-                            </h2>
-                            <p>You've got a match, lets talk!</p>
-                        </figcaption>
-                        <!-- <div class="delete">
+      <ul>
+        <% for (let i = 0; i < users.length; i++) { %>
+        <li>
+          <article id="person-options">
+            <figure>
+              <img
+                src="images/users/<%= users[i].photo %>.jpg"
+                alt="Liked user"
+              />
+            </figure>
+            <figcaption>
+              <h2>
+                <%= users[i].name %>, <%= users[i].age %>
+              </h2>
+              <p>You've got a match, lets talk!</p>
+            </figcaption>
+            <!-- <div class="delete">
                             <img src="images/icons/delete.svg" alt="">
                         </div> -->
-                    </article>
-                    <!-- <div></div> -->
-                </li>
-                <% }%>
-        </ul>
+          </article>
+          <!-- <div></div> -->
+        </li>
+        <% }%>
+      </ul>
     </main>
     <footer>
-        <%- include ("partials/footernav-matches.ejs") %>
+      <%- include ("partials/footernav-matches.ejs") %>
     </footer>
     <script src="scripts/script.js"></script>
-
-</body>
-
+  </body>
 </html>

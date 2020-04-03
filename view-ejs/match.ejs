@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include ("partials/head.ejs") %>
-        <title>Match</title>
-</head>
+    <title>Match</title>
+  </head>
 
-<body class="match">
-    <header>
-
-    </header>
+  <body class="match">
+    <header></header>
 
     <main>
-        <% let currentPerson = users.length - 1; %>
+      <% let currentPerson = users.length - 1; %>
 
-            <section>
-                <picture>
-                    <source srcset="images/users/<%= users[currentPerson].photo %>.jpg" media="(min-width: 800px)" alt="Profile picture of user">
-                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" />
-                </picture>
-                <picture>
-                    <source srcset="images/users/me.jpg" media="(min-width: 800px)" alt="Profile picture of user">
-                    <img src="images/users/memin.jpg" />
-                </picture>
-                <img src="images/matchheart.svg" alt="">
-            </section>
-            <section>
-                <h1>It's a match!</h1>
-                <h2>You and
-                    <%= users[currentPerson].name %> have liked each other.
-                </h2>
-                <a href="matchlist"> Send Message </a>
-                <a href="/"> Keep Swiping </a>
-            </section>
+      <section>
+        <picture>
+          <source
+            srcset="images/users/<%= users[currentPerson].photo %>.jpg"
+            media="(min-width: 800px)"
+            alt="Profile picture of user"
+          />
+          <img src="images/users/<%= users[currentPerson].photo %>min.jpg" />
+        </picture>
+        <picture>
+          <source
+            srcset="images/users/me.jpg"
+            media="(min-width: 800px)"
+            alt="Profile picture of user"
+          />
+          <img src="images/users/memin.jpg" />
+        </picture>
+        <img src="images/matchheart.svg" alt="" />
+      </section>
+      <section>
+        <h1>It's a match!</h1>
+        <h2>You and <%= users[currentPerson].name %> have liked each other.</h2>
+        <a href="matchlist"> Send Message </a>
+        <a href="/"> Keep Swiping </a>
+      </section>
     </main>
     <script src="scripts/script.js"></script>
-
-</body>
-
+  </body>
 </html>

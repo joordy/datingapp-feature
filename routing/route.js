@@ -6,7 +6,7 @@ require('dotenv').config();
 // connecting to database
 let db = null;
 let usersCollection = null;
-let url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}${process.env.DB_END}&w=majority`;
+let url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}${process.env.DB_END}`;
 mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function(
   err,
   client

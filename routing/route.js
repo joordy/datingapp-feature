@@ -52,7 +52,7 @@ async function login(req, res, next) {
     let gebruikers = await usersCollection.find().toArray();
     res.render('login.ejs', { users: gebruikers });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
@@ -63,7 +63,7 @@ async function loginSuccesful(req, res, next) {
     res.redirect('/');
     console.log(`You are now logged in as user ${req.session.currentUser}`);
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
@@ -73,7 +73,7 @@ async function home(req, res, next) {
     let gebruikers = await usersCollection.find({ seen: false }).toArray();
     res.render('index.ejs', { users: gebruikers });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
@@ -83,7 +83,7 @@ async function profile(req, res, next) {
     let gebruikers = await usersCollection.find({ seen: false }).toArray();
     res.render('profile.ejs', { users: gebruikers });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
@@ -115,7 +115,7 @@ async function youHaveAnMatch(req, res, next) {
       res.redirect('/');
     }
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
@@ -125,21 +125,21 @@ async function matchOverview(req, res, next) {
     let allMatches = await usersCollection.find({ match: true }).toArray();
     res.render('matchlist.ejs', { users: allMatches });
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
 async function profiel(req, res, next) {
-  // Profiel page
+  // Profiel page, user can sign out here.
   try {
     res.render('profiel.ejs', { users: req.session.currentUser });
   } catch (err) {
-    console.l;
+    next(err);
   }
 }
 
 async function logOut(req, res, next) {
-  // Logout function
+  // Logout function, sends it back to login route.
   try {
     req.session.destroy();
     console.log(
@@ -147,7 +147,7 @@ async function logOut(req, res, next) {
     );
     res.redirect('/login');
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 
@@ -156,7 +156,7 @@ async function errorNotFound(req, res, next) {
   try {
     res.status(404).render('404');
   } catch (err) {
-    console.log(err);
+    next(err);
   }
 }
 

@@ -488,12 +488,27 @@ footer nav ul li {
 *******************************************************************************/
 
 .inlog form {
+  margin-top: 10em;
   text-align: center;
 }
 
+.inlog form label {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
 .inlog form div {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 2em;
+}
+
+.inlog form input[type='submit'] {
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 80vw;
+  margin-top: 12em;
+  padding: 1em 4em;
+  background-color: #ef6a52;
 }
 
 /******************************************************************************
@@ -505,6 +520,21 @@ footer nav ul li {
   margin-top: 3em;
 }
 
+.profiel form {
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 50vh;
+}
+
+.profiel form input[type='submit'] {
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 80vw;
+  margin-top: 2em;
+  padding: 1em 4em;
+  background-color: #ef6a52;
+}
 /******************************************************************************
                                 Error404 page
 *******************************************************************************/

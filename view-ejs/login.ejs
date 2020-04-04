@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include ("partials/head.ejs") %>
-        <title>Home</title>
-</head>
+    <title>Home</title>
+  </head>
 
-<body class="inlog">
+  <body class="inlog">
     <header>
-        <h1>Swiper</h1>
+      <h1>Swiper</h1>
     </header>
     <main>
-        <form action="/" method="POST">
-            <!-- <input type="hidden" name="Jordy Fronik" value="99999" /> -->
-            <label for="name">Your name:</label>
-            <div>
-                <select name="user" id="user">
-                    <% for (let i=0; i < users.length;i++) { %>
-                        <option value="<%= users[i].name %>"><%= users[i].name%></option>
-                    <% } %>
-                  </select>
-
-                <!-- <select name="user" id="">
-                    <option value="">--Please choose an user</option>
-                    <option value="Jordy Fronik">Jordy Fronik</option>
-                    <option value="Romy">Romy</option>
-                    <option value="Michella">Michella</option>
-                </select> -->
-
-            </div>
-            <input type="submit" /></form>
+      <form action="/" method="POST">
+        <label for="name">Your name:</label>
+        <div>
+          <select name="user" id="user">
+            <% for (let i=0; i < users.length;i++) { %>
+            <option value="<%= users[i].name %>"><%= users[i].name%></option>
+            <% } %>
+          </select>
+        </div>
+        <input type="submit" />
+      </form>
     </main>
-</body>
-
+  </body>
 </html>

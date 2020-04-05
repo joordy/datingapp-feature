@@ -27,6 +27,8 @@ router.get('/', userIsSignedIn, home);
 router.get('/profile', userIsSignedIn, profile);
 router.get('/matchlist', userIsSignedIn, matchOverview);
 router.get('/profiel', userIsSignedIn, profiel);
+router.post('/profiel', youHaveAnMatch);
+
 router.post('/logout', logOut);
 router.post('/match', userIsSignedIn, youHaveAnMatch);
 router.get('/*', errorNotFound);

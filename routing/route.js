@@ -104,9 +104,6 @@ async function youHaveAnMatch(req, res, next) {
         `you have a like with ${completeCollection[x].name}, and the ID is ${completeCollection[x]._id}`
       );
       res.render('match.ejs', { users: matchedUsers });
-    } else if (req.body.undo) {
-      console.log('undo');
-      res.redirect('/');
     } else if (req.body.dislike) {
       usersCollection.updateOne(
         { _id: completeCollection[x]._id },

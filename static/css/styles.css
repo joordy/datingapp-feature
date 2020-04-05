@@ -72,11 +72,12 @@ footer nav ul li {
   position: absolute;
   justify-content: center;
   list-style-type: none;
+  margin-top: 3vh;
 }
 
 .home section {
   width: 100%;
-  height: 75vh;
+  height: 70vh;
   margin: 0 auto;
   position: relative;
   border-radius: 10px;
@@ -84,17 +85,17 @@ footer nav ul li {
 
 .home section img {
   object-fit: cover;
-  height: 75vh;
+  height: 70vh;
   border-radius: 10px;
   width: 100%;
 }
 
 .home section article {
   background-color: white;
-  width: 90%;
-  margin: 0em 1em 1em 1em;
+  width: 95%;
+  margin: 0% 2.5% 2.5% 2.5%;
   position: absolute;
-  top: 52vh;
+  top: 48vh;
   min-width: top;
   padding: 1em;
   border-radius: 10px;

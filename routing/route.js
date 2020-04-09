@@ -182,15 +182,12 @@ async function matchOverview(req, res, next) {
     let liked = myself[0].liked;
 
     let test = usersCollection.findOne({ _id: idLoggedIn }).toArray;
-    // let likedObjects = liked.map((s) => mongoose.Types.ObjectId(s));
-    // let dislikedObjects = disliked.map((s) => mongoose.Types.ObjectId(s));
     // usersCollection.find({ _id: idLoggedIn }); // user session ID will be stored
     // let matches = usersCollection
     //   .find({
     //     $and: [
     //       { _id: idLoggedIn },
     //       { _id: { $in: liked } },
-    //       // { _id: { $nin: dislikedObjects } },
     //     ],
     //   })
     //   .toArray();

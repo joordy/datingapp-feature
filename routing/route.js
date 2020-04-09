@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb');
-const mongoose = require('mongoose');
 require('dotenv').config();
 
 // Variables

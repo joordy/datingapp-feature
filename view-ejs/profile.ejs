@@ -7,7 +7,6 @@
 </head>
 
 <body class="profile">
-    <% let currentPerson = users.length - 1; %>
         <ul>
             <li>
                 <a href="/"><img src="images/icons/back.svg" alt="back"></a>
@@ -18,8 +17,8 @@
         </ul>
         <section>
             <picture>
-                <source srcset="images/users/<%= users[currentPerson].photo %>.jpg" media="(min-width: 768px)">
-                <img src="images/users/<%= users[currentPerson].photo %>min.jpg" />
+                <source srcset="images/users/<%= users.photo %>.jpg" media="(min-width: 768px)">
+                <img src="images/users/<%= users.photo %>min.jpg" />
             </picture>
             <div></div>
             <div></div>
@@ -27,16 +26,16 @@
         <section>
             <article>
                 <h2>
-                    <%= users[currentPerson].name %>,
-                        <%= users[currentPerson].age %>
+                    <%= users.name %>,
+                        <%= users.age %>
                 </h2>
                 <h3>
-                    <%= users[currentPerson].work %>
+                    <%= users.work %>
                 </h3>
                 <div class="images">
-                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" alt="Profile picture of ">
-                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" alt="Profile picture of ">
-                    <img src="images/users/<%= users[currentPerson].photo %>min.jpg" alt="Profile picture of ">
+                    <img src="images/users/<%= users.photo %>min.jpg" alt="Profile picture of ">
+                    <img src="images/users/<%= users.photo %>min.jpg" alt="Profile picture of ">
+                    <img src="images/users/<%= users.photo %>min.jpg" alt="Profile picture of ">
                 </div>
                 <div>
                     <h4>Hobby's</h4>
@@ -47,12 +46,12 @@
                     <h4>About</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam odio neque enim facilisi eu nunc in amet, vestibulum.</p>
                 </div>
-                <form action="/" method="POST"></form>
+                <form action="/match" method="POST"></form>
                 <label for="dislike">
-                        <input type="submit" name="dislike" class="dislike" data-id="<%= users[currentPerson].id %>" value="&times">
+                        <input type="submit" name="dislike" class="dislike" data-id="<%= users.id %>" value="&times">
                     </label>
                 <label for="like">
-                        <input type="submit" name="like" class="like" data-id="<%= users[currentPerson]._id %>" value="❤">
+                        <input type="submit" name="like" class="like" data-id="<%= users._id %>" value="❤">
                     </label>
                 </form>
             </article>

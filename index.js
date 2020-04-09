@@ -23,7 +23,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     saveUninitialized: true,
     resave: false,
-    secure: true
+    secure: true,
   })
 );
 app.use('/', routing);

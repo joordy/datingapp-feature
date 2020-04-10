@@ -65,10 +65,10 @@ async function loginSuccesful(req, res, next) {
   }
 }
 
-function removeUser(user) {
-  // To remove myself from array
-  return user.name !== nameLoggedIn;
-}
+// function removeUser(user) {
+//   // To remove myself from array
+//   return user.name !== nameLoggedIn;
+// }
 
 function showMe(user) {
   // To get myself out of array
@@ -180,7 +180,8 @@ async function matchOverview(req, res, next) {
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
 
-    let test = usersCollection.findOne({ _id: idLoggedIn }).toArray;
+    let test = usersCollection.find({ _id: liked[i] }).toArray();
+    console.log(test);
     // usersCollection.find({ _id: idLoggedIn }); // user session ID will be stored
     // let matches = usersCollection
     //   .find({
@@ -193,7 +194,7 @@ async function matchOverview(req, res, next) {
 
     // let allUsers = await usersCollection.find().toArray();
     // let myself = allUsers.filter(showMe);
-    console.log(liked);
+    console.log(test);
     res.render('matchlist.ejs', { users: test });
   } catch (err) {
     next(err);

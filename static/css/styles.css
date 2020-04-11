@@ -68,7 +68,7 @@ footer nav ul li a img {
 }
 
 .home main ul {
-  margin: 0vh 5vw;
+  /* margin: 0vh 5vw; */
   /* display: flex;
   justify-content: center; */
 }
@@ -76,6 +76,7 @@ footer nav ul li a img {
 .home main ul li {
   width: 90vw;
   position: absolute;
+  left: 5vw;
   justify-content: center;
   list-style-type: none;
   margin-top: 3vh;

@@ -6,24 +6,27 @@ require('dotenv').config();
 
 // Variables
 let nameLoggedIn = 'Jordy Fronik';
-let idLoggedIn = '5e70aa4227f0bb83c16adf21';
+let idLoggedIn = 18;
 let db = null;
 let usersCollection = null;
 let url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URL}${process.env.DB_END}`;
 
 // connecting to database
-mongo.MongoClient.connect(url, { useUnifiedTopology: true }, function (
-  err,
-  client
-) {
-  if (err) {
-    throw err;
-  } else if (client) {
-    console.log('Connected to database');
+mongo.MongoClient.connect(
+  url,
+  {
+    useUnifiedTopology: true,
+  },
+  function (err, client) {
+    if (err) {
+      throw err;
+    } else if (client) {
+      console.log('Connected to database');
+    }
+    db = client.db(process.env.DB_NAME);
+    usersCollection = db.collection('allUsers');
   }
-  db = client.db(process.env.DB_NAME);
-  usersCollection = db.collection('allUsers');
-});
+);
 
 // Routing
 router.get('/login', login);
@@ -48,7 +51,9 @@ async function login(req, res, next) {
   // Login page, to identify the user and store this one in the session.
   try {
     let allUsers = await usersCollection.find().toArray();
-    res.render('login.ejs', { users: allUsers });
+    res.render('login.ejs', {
+      users: allUsers,
+    });
   } catch (err) {
     next(err);
   }
@@ -82,17 +87,31 @@ async function home(req, res, next) {
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
     let disliked = myself[0].disliked;
-    let proberen = await usersCollection
+    let allUsers = await usersCollection
       .find({
         $and: [
-          { name: { $ne: nameLoggedIn } },
-          { _id: { $nin: liked } },
-          { _id: { $nin: disliked } },
+          {
+            name: {
+              $ne: nameLoggedIn,
+            },
+          },
+          {
+            id: {
+              $nin: liked,
+            },
+          },
+          {
+            id: {
+              $nin: disliked,
+            },
+          },
         ],
       })
       .toArray();
 
-    res.render('index.ejs', { users: proberen });
+    res.render('index.ejs', {
+      users: allUsers,
+    });
   } catch (err) {
     next(err);
   }
@@ -105,19 +124,31 @@ async function userProfile(req, res, next) {
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
     let disliked = myself[0].disliked;
-    let proberen = await usersCollection
+    let allUsers = await usersCollection
       .find({
         $and: [
-          { name: { $ne: nameLoggedIn } },
-          { _id: { $nin: liked } },
-          { _id: { $nin: disliked } },
+          {
+            name: {
+              $ne: nameLoggedIn,
+            },
+          },
+          {
+            id: {
+              $nin: liked,
+            },
+          },
+          {
+            id: {
+              $nin: disliked,
+            },
+          },
         ],
       })
       .toArray();
-
-    let lastUser = proberen[proberen.length - 1];
-    // consoe.log(test);
-    res.render('profile.ejs', { users: lastUser });
+    let lastUser = allUsers[allUsers.length - 1];
+    res.render('profile.ejs', {
+      users: lastUser,
+    });
   } catch (err) {
     next(err);
   }
@@ -126,18 +157,31 @@ async function userProfile(req, res, next) {
 function updateDatabase(input, user) {
   if (input.like) {
     usersCollection.updateOne(
-      { name: nameLoggedIn },
-      { $push: { liked: user._id } }
+      {
+        name: nameLoggedIn,
+      },
+      {
+        $push: {
+          liked: user.id,
+        },
+      }
     );
     return true;
   } else if (input.dislike) {
     usersCollection.updateOne(
-      { name: nameLoggedIn },
-      { $push: { disliked: user._id } }
+      {
+        name: nameLoggedIn,
+      },
+      {
+        $push: {
+          disliked: user.id,
+        },
+      }
     );
     return false;
   }
 }
+
 async function youHaveAnMatch(req, res, next) {
   // Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page.
   // When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered.
@@ -146,27 +190,54 @@ async function youHaveAnMatch(req, res, next) {
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
     let disliked = myself[0].disliked;
-    let proberen = await usersCollection
+    let allUsers = await usersCollection
       .find({
         $and: [
-          { name: { $ne: nameLoggedIn } },
-          { _id: { $nin: liked } },
-          { _id: { $nin: disliked } },
+          {
+            name: {
+              $ne: nameLoggedIn,
+            },
+          },
+          {
+            id: {
+              $nin: liked,
+            },
+          },
+          {
+            id: {
+              $nin: disliked,
+            },
+          },
         ],
       })
       .toArray();
-    let indexUser = proberen.length - 1;
-    let user = proberen[indexUser];
+    let indexUser = allUsers.length - 1;
+    let user = allUsers[indexUser];
 
     let value = updateDatabase(req.body, user);
-    if (value === true) {
+    if (value === true && user.liked.includes(idLoggedIn)) {
       console.log(
-        `you have a like with ${user.name}, and the ID is ${user._id}`
+        `you have a like with ${user.name}, and the ID is ${user._id}, ${user.liked}`
       );
-      res.render('match.ejs', { users: user });
+      res.render('match.ejs', {
+        users: user,
+      });
+    } else if (value === true) {
+      console.log(`You like ${user.name}, but she hasn't liked you yet.`);
+      res.redirect('/');
     } else if (value === false) {
       res.redirect('/');
     }
+    // if (value === true) {
+    //   console.log(
+    //     `you have a like with ${user.name}, and the ID is ${user._id}`
+    //   );
+    //   res.render('match.ejs', {
+    //     users: user
+    //   });
+    // } else if (value === false) {
+    //   res.redirect('/');
+    // }
   } catch (err) {
     next(err);
   }
@@ -179,23 +250,19 @@ async function matchOverview(req, res, next) {
     let database = await usersCollection.find().toArray();
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
+    // console.log(liked);
 
-    let test = usersCollection.find({ _id: liked[i] }).toArray();
-    console.log(test);
-    // usersCollection.find({ _id: idLoggedIn }); // user session ID will be stored
-    // let matches = usersCollection
-    //   .find({
-    //     $and: [
-    //       { _id: idLoggedIn },
-    //       { _id: { $in: liked } },
-    //     ],
-    //   })
-    //   .toArray();
+    let matches = await usersCollection
+      .find({
+        id: {
+          $in: liked,
+        },
+      })
+      .toArray();
 
-    // let allUsers = await usersCollection.find().toArray();
-    // let myself = allUsers.filter(showMe);
-    console.log(test);
-    res.render('matchlist.ejs', { users: test });
+    res.render('matchlist.ejs', {
+      users: matches,
+    });
   } catch (err) {
     next(err);
   }
@@ -204,7 +271,9 @@ async function matchOverview(req, res, next) {
 async function profiel(req, res, next) {
   // Profiel page, user can sign out here.
   try {
-    res.render('profiel.ejs', { users: req.session.currentUser });
+    res.render('profiel.ejs', {
+      users: req.session.currentUser,
+    });
   } catch (err) {
     next(err);
   }

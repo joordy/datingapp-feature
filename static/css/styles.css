@@ -73,13 +73,26 @@ footer nav ul li a img {
   justify-content: center; */
 }
 
-.home main ul li {
+.home main ul .card {
   width: 90vw;
   position: absolute;
   left: 5vw;
   justify-content: center;
   list-style-type: none;
   margin-top: 3vh;
+  transition: 2.6s ease-out;
+}
+
+.home main ul .SwipeAnimationRight {
+  left: 160vw;
+  margin-top: -60vh;
+  transform: rotate(90deg);
+}
+
+.home main ul .SwipeAnimationLeft {
+  left: -160vw;
+  margin-top: -60vh;
+  transform: rotate(-90deg);
 }
 
 .home section {
@@ -196,11 +209,7 @@ footer nav ul li a img {
   top: 0;
   height: 50em;
   width: 100vw;
-  background-image: linear-gradient(
-    to top,
-    rgba(78, 80, 184, 1),
-    rgba(78, 80, 184, 0.1)
-  );
+  background-image: linear-gradient(to top, rgba(78, 80, 184, 1), rgba(78, 80, 184, 0.1));
 }
 
 .profile section:nth-of-type(1) div:nth-of-type(2) {

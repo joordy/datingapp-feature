@@ -186,6 +186,8 @@ async function youHaveAnMatch(req, res, next) {
   // Route match page, when pressing like, database will be updated with 'seen: true' & 'match: true'. Users gets match page.
   // When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered.
   try {
+    // Delay for front-end components
+    //setTimeout(async function () {
     let database = await usersCollection.find().toArray();
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
@@ -211,14 +213,12 @@ async function youHaveAnMatch(req, res, next) {
         ],
       })
       .toArray();
+    console.log(req.body);
     let indexUser = allUsers.length - 1;
     let user = allUsers[indexUser];
-
     let value = updateDatabase(req.body, user);
     if (value === true && user.liked.includes(idLoggedIn)) {
-      console.log(
-        `you have a like with ${user.name}, and the ID is ${user._id}, ${user.liked}`
-      );
+      console.log(`you have a like with ${user.name}, and the ID is ${user._id}, ${user.liked}`);
       res.render('match.ejs', {
         users: user,
       });
@@ -228,6 +228,8 @@ async function youHaveAnMatch(req, res, next) {
     } else if (value === false) {
       res.redirect('/');
     }
+    //}, 3000);
+
     // if (value === true) {
     //   console.log(
     //     `you have a like with ${user.name}, and the ID is ${user._id}`
@@ -260,6 +262,8 @@ async function matchOverview(req, res, next) {
       })
       .toArray();
 
+    console.log(matches);
+
     res.render('matchlist.ejs', {
       users: matches,
     });
@@ -283,9 +287,7 @@ async function logOut(req, res, next) {
   // Logout function, sends it back to login route.
   try {
     req.session.destroy();
-    console.log(
-      'Your session is destroyed. You can log in again to use the application.'
-    );
+    console.log('Your session is destroyed. You can log in again to use the application.');
     res.redirect('/login');
   } catch (err) {
     next(err);

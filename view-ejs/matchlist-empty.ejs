@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include ("partials/head.ejs") %>
-        <title>Match-List</title>
-</head>
+    <title>Match-List</title>
+  </head>
 
-<body class="emptymatchlist">
+  <body class="emptymatchlist">
     <header>
-        <h1>Swiper</h1>
+      <h1>Swiper</h1>
     </header>
 
-
     <main>
-        <section>
-            <h1>Sorry!</h1>
-            <p>Hmm.. You don't have any matches yet.</p>
-            <a href="/">Start Swiping</a>
-        </section>
+      <section>
+        <h1>Sorry!</h1>
+        <p>Hmm.. You don't have any matches yet.</p>
+        <a href="/">Start Swiping</a>
+      </section>
     </main>
     <footer>
-        <%- include ("partials/footernav-matches.ejs") %>
+      <%- include ("partials/footernav-matches.ejs") %>
     </footer>
-</body>
-
+    <script src="scripts/client.js"></script>
+  </body>
 </html>

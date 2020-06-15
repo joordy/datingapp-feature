@@ -14,24 +14,27 @@
     <main>
       <ul>
         <% for (let i = 0; i <users.length; i++) { %>
-          <li>
-            <section class="card">
-              <a href="profile">
+          <li class="card">
+            <section>
+              <a href="">
                 <picture>
                   <source srcset="images/users/<%= users[i].photo %>.jpg" media="(min-width: 800px)">
                   <img src="images/users/<%= users[i].photo %>min.jpg" />
                 </picture>
+
                 <article>
                   <h2> <%= users[i].name %>, <%= users[i].age %> </h2>
                   <h3> <%= users[i].work %>, <%= users[i].id %> </h3>
-                  <form action="/match" method="POST">
+
+                  <form action="/match" method="POST" id="likeOrDislike">
                     <label for="dislike">
-                      <input type="submit" name="dislike" class="dislike" data-id="<%= users[i]._id %>" value="&times;">
+                      <input type="submit" name="dislike" class="dislike" data-id="<%= users[i].name %>" value="&times;">
                     </label>
                     <label for="like">
-                      <input type="submit" name="like" class="like" data-id="<%= users[i]._id %>" value="❤">
+                      <input type="submit" name="like" id="like" class="like" data-id="<%= users[i].name %>" value="❤">
                     </label>
                     <div>
+
                       <label for="undo">
                         <input type="submit" id="undo" name="undo" class="undo" value="&crarr;">
                       </label>
@@ -49,6 +52,6 @@
     <footer>
       <%- include ("partials/footernav-home.ejs") %>
     </footer>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/client.js"></script>
   </body>
 </html>

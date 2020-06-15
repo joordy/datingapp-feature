@@ -1,13 +1,13 @@
 module.exports = {
   rules: {
     semi: ['error', 'always'],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'double'],
     'no-unused-vars': 0,
-    indent: [false, 'spaces', 2]
+    indent: [false, 'spaces', 2],
   },
 
   parserOptions: {
-    ecmaVersion: 2020
+    ecmaVersion: 2020,
   },
 
   env: {
@@ -15,6 +15,6 @@ module.exports = {
     es6: true,
     es7: true,
     es8: true,
-    browser: true
-  }
+    browser: true,
+  },
 };

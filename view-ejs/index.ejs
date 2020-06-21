@@ -24,7 +24,7 @@
 
                 <article>
                   <h2> <%= users[i].name %>, <%= users[i].age %> </h2>
-                  <h3> <%= users[i].work %>, <%= users[i].id %> </h3>
+                  <h3> <%= users[i].work %> </h3>
 
                   <form action="/match" method="POST" id="likeOrDislike">
                     <label for="dislike">
@@ -46,12 +46,13 @@
           </li>
         <% }%>
       </ul>
-      <p>There are no users anymore to display, please come back later.</p>
+      <p class="emptyMessage">There are no users anymore to display, please come back later.</p>
+      <p class="clicked"><span id=counter></span></p>
     </main>
 
     <footer>
       <%- include ("partials/footernav-home.ejs") %>
     </footer>
-    <script src="scripts/client.js"></script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>

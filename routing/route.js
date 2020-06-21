@@ -187,7 +187,6 @@ async function youHaveAnMatch(req, res, next) {
   // When pressing dislike, database will be updated with 'seen: true' & match stays false. Index page will be rerendered.
   try {
     // Delay for front-end components
-    //setTimeout(async function () {
     let database = await usersCollection.find().toArray();
     let myself = database.filter(showMe);
     let liked = myself[0].liked;
@@ -228,23 +227,10 @@ async function youHaveAnMatch(req, res, next) {
     } else if (value === false) {
       res.redirect('/');
     }
-    //}, 3000);
-
-    // if (value === true) {
-    //   console.log(
-    //     `you have a like with ${user.name}, and the ID is ${user._id}`
-    //   );
-    //   res.render('match.ejs', {
-    //     users: user
-    //   });
-    // } else if (value === false) {
-    //   res.redirect('/');
-    // }
   } catch (err) {
     next(err);
   }
 }
-// Try
 
 async function matchOverview(req, res, next) {
   // Route match overview, graps every user with 'match: true' and will be displayed on overview page.

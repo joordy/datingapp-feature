@@ -1,32 +1,33 @@
-// require packages or files
-const express = require('express');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-const mongo = require('mongodb');
-const assert = require('assert');
-const routing = require('./routing/route.js');
+const // Require packages
+  express = require('express'),
+  bodyParser = require('body-parser'),
+  session = require('express-session'),
+  cookieParser = require('cookie-parser'),
+  mongo = require('mongodb'),
+  assert = require('assert'),
+  routing = require('./routing/route.js'),
+  // Variables
+  app = express(),
+  PORT = process.env.PORT || process.env.DB_PORT;
+
 require('dotenv').config();
 
-// Variables
-const app = express();
-const PORT = process.env.PORT || process.env.DB_PORT;
-
 // Middleware set-up
-app.set('view engine', 'ejs');
-app.set('views', 'view-ejs');
-app.use(express.static('static'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    saveUninitialized: true,
-    resave: false,
-    secure: true,
-  })
-);
-app.use('/', routing);
+app
+  .set('view engine', 'ejs')
+  .set('views', 'view-ejs')
+  .use(express.static('static'))
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(cookieParser())
+  .use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      saveUninitialized: true,
+      resave: false,
+      secure: true,
+    })
+  )
+  .use('/', routing)
 
-// Server deploying on https://localhost:4000.
-app.listen(PORT, () => console.log(`App is listening on ${PORT}!`));
+  // Server deploying on https://localhost:4000.
+  .listen(PORT, () => console.log(`App is listening on ${PORT}!`));

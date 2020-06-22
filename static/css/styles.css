@@ -786,6 +786,20 @@ footer nav ul li a img {
   }
 }
 
+@media all and (min-width: 768px) {
+  .match section:nth-of-type(1) picture:nth-of-type(1) img {
+    margin-right: 30%;
+  }
+
+  .match section:nth-of-type(1) picture:nth-of-type(2) img {
+    margin-left: 30%;
+  }
+
+  .match section a {
+    width: 30vw;
+  }
+}
+
 @media all and (min-width: 608px) {
   .error404 section img {
     width: 30%;

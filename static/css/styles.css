@@ -441,7 +441,8 @@ footer nav ul li a img {
 
 .matchlist main ul li {
   display: flex;
-  width: 100vw;
+  justify-content: center;
+  width: 100%;
 }
 
 .matchlist article {
@@ -797,6 +798,23 @@ footer nav ul li a img {
 
   .match section a {
     width: 30vw;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .matchlist main ul li {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+  .matchlist article figure {
+    position: absolute;
+    left: 25%;
+    /* margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    height: 100px;
+    width: 100px; */
   }
 }
 
